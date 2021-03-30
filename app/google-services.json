@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895039701448",
+    "project_id": "appoindone-55cc1",
+    "storage_bucket": "appoindone-55cc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895039701448:android:a0a53ad04e01ba394f00fd",
+        "android_client_info": {
+          "package_name": "com.hp.appoindone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895039701448-j736igmr34ujo8g40cvj1jkdj8p1g5q4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6jA5kjmh8aEqKn8zcNuCVlxxK_0hHpak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895039701448-j736igmr34ujo8g40cvj1jkdj8p1g5q4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

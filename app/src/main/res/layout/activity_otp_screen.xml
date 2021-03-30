@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    app:enable_preview="true"
+    app:layout_enableShadow="true"
+    app:layout_shadowRadius="2dp"
+    app:layout_shadowDy="2dp"
+    app:layout_shadowDx="2dp"
+    app:layout_shadowColor="#000000"
+    tools:context=".otp_screen">
+
+    <ImageView
+        android:id="@+id/iv_otp_mobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/verification"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_otp_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_otp_1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_otp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_otp_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_otp_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_otp_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.81" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_otp_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+
+    <TextView
+        android:id="@+id/tv_otp_otp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="OTP VERIFICATION"
+        android:textColor="#303030"
+        android:textSize="@dimen/text"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_otp_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_1"
+        app:layout_constraintTop_toBottomOf="@+id/iv_otp_mobile" />
+
+    <TextView
+        android:id="@+id/tv_otp_no"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Enter OTP code sent to your number
+        +91 XXXXXXXXXX"
+        android:textColor="#80303030"
+        android:textSize="@dimen/extra"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_otp_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_otp_2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_otp_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_otp_3">
+
+        <EditText
+            android:id="@+id/et_otp_1"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_otp_2"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_otp_2"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_otp_3"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_otp_3"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_otp_4"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_otp_4"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_otp_5"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_otp_5"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:nextFocusRight="@+id/et_otp_6"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_otp_6"
+            android:layout_width="@dimen/heading"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#303030"
+            android:gravity="center"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/b_otp_continue"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_gradient"
+        android:text="CONTINUE"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_otp_5"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_otp_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_otp_4" />
+
+    <TextView
+        android:id="@+id/ltv_otp_resend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:text="Resend OTP"
+        android:textColor="#303030"
+        android:textColorLink="@color/primarydark"
+        android:textSize="@dimen/extra"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_otp_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_otp_2"
+        app:layout_constraintTop_toTopOf="@id/hguide_otp_6" />
+
+</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

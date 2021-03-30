@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Appoindone</string>
+    <string name="terms"><a href="http://www.google.com">Terms and Condition</a></string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="history"><big><font color="#303030">History</font></big></string>
+    <string name="favourites"><big><font color="#303030">Favourites</font></big></string>
+    <string name="settings"><big><font color="#303030">Settings</font></big></string>
+    <string name="help"><big><font color="#303030">Help</font></big></string>
+    <string name="privacy_policy"><big><font color="#303030">Privacy Policy</font></big></string>
+    <string name="about_us"><big><font color="#303030">About Us</font></big></string>
+    <string name="contact_us"><big><font color="#303030">Contact Us</font></big></string>
+    <string name="log_out"><big><font color="#303030">Log Out</font></big></string>
+</resources>

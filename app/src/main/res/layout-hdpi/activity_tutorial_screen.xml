@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    app:enable_preview="true"
+    tools:context=".tutorial_screen">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.63" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_ts_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.075" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.806" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.936" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.88" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slideviewpager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="33dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_2"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_ts_appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/aquatico"
+        android:shadowColor="#50000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="0.01"
+        android:text="@string/app_name"
+        android:textColor="#303030"
+        android:textSize="@dimen/heading"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_6"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_1" />
+
+    <TextView
+        android:id="@+id/tv_ts_appname2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/aquatico"
+        android:shadowColor="#FFFFFF"
+        android:shadowDx="-3"
+        android:shadowDy="-3"
+        android:shadowRadius="0.01"
+        android:text="@string/app_name"
+        android:textColor="#303030"
+        android:textSize="@dimen/heading"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_6"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_1" />
+
+    <Button
+        android:id="@+id/b_ts_signup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_gradient"
+        android:text="SIGN UP"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_ts_4"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_5"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_3" />
+
+    <ImageView
+        android:id="@+id/iv_ts_bar"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_ts_5"
+        app:layout_constraintEnd_toStartOf="@id/vguide_ts_3"
+        app:layout_constraintStart_toStartOf="@id/vguide_ts_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_4"
+        app:srcCompat="@drawable/_black" />
+
+    <ImageView
+        android:id="@+id/iv_ts_bar2"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        app:layout_constraintEnd_toStartOf="@id/vguide_ts_6"
+        app:layout_constraintStart_toStartOf="@id/vguide_ts_4"
+        app:layout_constraintTop_toTopOf="@id/hguide_ts_4"
+        app:layout_constraintBottom_toTopOf="@id/hguide_ts_5"
+        app:srcCompat="@drawable/_black" />
+
+    <TextView
+        android:id="@+id/tv_ts_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OR"
+        android:textColor="#303030"
+        android:textSize="@dimen/extra"
+        app:layout_constraintBottom_toTopOf="@id/hguide_ts_5"
+        app:layout_constraintEnd_toStartOf="@id/vguide_ts_4"
+        app:layout_constraintStart_toStartOf="@id/vguide_ts_3"
+        app:layout_constraintTop_toBottomOf="@+id/b_ts_signup" />
+
+    <Button
+        android:id="@+id/b_ts_login"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_gradient"
+        android:text="LOG IN"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_ts_6"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_5"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_5" />
+
+    <TextView
+        android:id="@+id/tv_ts_softui1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_cardRadius="85"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#FFFFFF"
+        app:layout_highlightDx="-3dp"
+        app:layout_highlightDy="-3dp"
+        app:layout_highlightRadius="5dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#50000000"
+        app:layout_shadowDx="3dp"
+        app:layout_shadowDy="3dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_ts_4"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_5"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_3"/>
+
+    <TextView
+        android:id="@+id/tv_ts_softui2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_cardRadius="85"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#FFFFFF"
+        app:layout_highlightDx="-3dp"
+        app:layout_highlightDy="-3dp"
+        app:layout_highlightRadius="5dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#50000000"
+        app:layout_shadowDx="3dp"
+        app:layout_shadowDy="3dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_ts_6"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_ts_5"
+        app:layout_constraintStart_toStartOf="@+id/vguide_ts_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_ts_5"/>
+
+</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

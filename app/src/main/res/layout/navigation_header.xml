@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical">
+    <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="end"
+        app:enable_preview="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="12dp"
+            app:cardBackgroundColor="#303030"
+            app:cardCornerRadius="1000dp"
+            app:layout_cardRadius="500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#FFFFFF"
+            app:layout_highlightDx="-2dp"
+            app:layout_highlightDy="-2dp"
+            app:layout_highlightRadius="2dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#40000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="2dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#EEEEEE"
+                app:cardCornerRadius="1000dp">
+
+                <ImageView
+                    android:id="@+id/user_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/profile" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="User Name"
+        android:textColor="#303030"
+        android:textSize="35sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:drawable/divider_horizontal_bright" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ad"
+    app:enable_preview="true"
+    app:layout_cardRadius="70"
+    app:layout_enableHighlight="true"
+    app:layout_enableShadow="true"
+    app:layout_highlightColor="#FFFFFF"
+    app:layout_highlightDx="-3dp"
+    app:layout_highlightDy="-3dp"
+    app:layout_highlightRadius="3dp"
+    app:layout_neu_backgroundColor="#EEEEEE"
+    app:layout_shadowColor="#000000"
+    app:layout_shadowDx="3dp"
+    app:layout_shadowDy="3dp"
+    app:layout_shadowRadius="3dp"
+    tools:context=".sign_up">
+
+    <ImageView
+        android:id="@+id/iv_s_bgwhite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.3"
+        android:src="@color/white" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_s_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_s_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.27" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_s_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vguide_s_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.075" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.200" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.260" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.290" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.350" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.380" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.440" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.470" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.530" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.560" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.620" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.650" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.710" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.740" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_s_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.93" />
+
+
+    <TextView
+        android:id="@+id/tv_s_appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aquatico"
+        android:shadowColor="#80000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="2"
+        android:text="@string/app_name"
+        android:textColor="#303030"
+        android:textSize="@dimen/heading"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_1" />
+
+    <TextView
+        android:id="@+id/tv_s_appname2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aquatico"
+        android:shadowColor="#70FFFFFF"
+        android:shadowDx="-3"
+        android:shadowDy="-3"
+        android:shadowRadius="2"
+        android:text="@string/app_name"
+        android:textColor="#303030"
+        android:textSize="@dimen/heading"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_1" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_fname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_fname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="First Name"
+            android:inputType="text"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_lname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_5"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_4">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_lname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="Last Name"
+            android:inputType="text"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_phone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_7"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_6">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="Phone No."
+            android:inputType="phone"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_9"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_8">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_pwd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#50303030"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_11"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_s_cpwd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeErrorColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        app:errorEnabled="false"
+        app:errorIconDrawable="@drawable/error_icon"
+        app:errorIconTint="@color/erroricon"
+        app:errorTextColor="@color/primarydark"
+        app:hintEnabled="false"
+        app:layout_cardRadius="70"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="#50303030"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_13"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_12">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_s_cpwd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/transparent"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:paddingLeft="@dimen/text"
+            android:paddingRight="@dimen/text"
+            android:textColor="#303030"
+            android:textColorHint="#50303030"
+            android:textSize="@dimen/text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_s_tc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="By Continuing, You Agree Appoindone's"
+        android:textColor="#303030"
+        android:textSize="@dimen/extra"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_14" />
+
+    <TextView
+        android:id="@+id/ltv_s_tc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:linksClickable="true"
+        android:text="Terms and Condition"
+        android:textColor="#303030"
+        android:textSize="@dimen/extra"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_s_tc" />
+
+    <Button
+        android:id="@+id/b_s_signup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/button_gradient"
+        android:text="SIGN UP"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/text"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_16"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_15"
+        />
+
+    <TextView
+        android:id="@+id/tv_s_softui1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_cardRadius="85"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#40FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="@color/white"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_16"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_s_3"
+        app:layout_constraintStart_toStartOf="@+id/vguide_s_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_s_15"/>
+
+</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

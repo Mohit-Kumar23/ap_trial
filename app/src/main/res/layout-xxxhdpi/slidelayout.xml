@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tutorial_screen">
+
+    <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:enable_preview="true"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline20"
+        app:layout_constraintStart_toStartOf="@+id/hguide_ts_4"
+        app:layout_constraintTop_toTopOf="@+id/guideline19">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+
+        <ImageView
+            android:id="@+id/slide_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="30dp"
+            android:background="@drawable/textbox_white"
+            app:layout_cardRadius="50"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#60FFFFFF"
+            app:layout_highlightDx="-3dp"
+            app:layout_highlightDy="-3dp"
+            app:layout_highlightRadius="3dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#40000000"
+            app:layout_shadowDx="3dp"
+            app:layout_shadowDy="3dp"
+            app:layout_shadowRadius="3dp"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/slide_images"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="60dp"
+            android:elevation="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_speed="0.5" />
+
+
+        <TextView
+            android:id="@+id/slide_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:elevation="10dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="NAVIGATION TO DESTINATION"
+            android:textColor="#303030"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline22"
+            app:layout_constraintVertical_bias="0.30" />
+
+
+    </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ts_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
