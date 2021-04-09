@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Appoindone</string>
     <string name="terms"><a href="http://www.google.com">Terms and Condition</a></string>
+    <string name="facebook_app_id">155345873047127</string>
+    <string name="fb_login_protocol_scheme">fb155345873047127</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="history"><big><font color="#303030">History</font></big></string>
