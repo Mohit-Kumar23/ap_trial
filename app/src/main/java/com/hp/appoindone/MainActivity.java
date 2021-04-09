@@ -15,6 +15,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     LottieAnimationView lottieAnimationView;
     ImageView bottomnavigationimage;
+    FirebaseAuth mAuth;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -84,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         floatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this,Search.class);
-            startActivity(intent);
+            //startActivity(intent);
+            mAuth.signOut();
         });
     }
 
@@ -109,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         floatingActionButton = findViewById(R.id.floatingactionbutton);
         lottieAnimationView = findViewById(R.id.search);
         bottomnavigationimage = findViewById(R.id.bottomnavigationimage);
+        mAuth=FirebaseAuth.getInstance();
     }
 
 }
