@@ -434,4 +434,16 @@
         app:layout_constraintStart_toStartOf="@id/vguide_l_4"
         app:layout_constraintTop_toTopOf="@+id/hguide_l_7"/>
 
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text"
+        android:text="Continue with Facebook"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_l_13"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
+        app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_12" />
+
 </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

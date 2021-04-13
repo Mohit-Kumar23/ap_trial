@@ -6,4 +6,5 @@
     <color name="bg">#4DFFFFFF</color>
     <color name="dots">#70FFFFFF</color>
     <color name="erroricon">#FF0000</color>
+    <color name="green">#00FF00</color>
 </resources>

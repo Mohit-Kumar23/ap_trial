@@ -27,7 +27,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+
 
 
 import java.lang.reflect.Array;
@@ -44,8 +44,9 @@ public class log_in extends AppCompatActivity {
     Button login;
     LoginButton loginButton;
     CallbackManager mCallbackManager;
-    private static final String EMAIL="monu.chanchlani@yahoo.com";
+    private static final String EMAIL="email";
     private static final String PUBLIC_PROFILE="public_profile";
+    private CallbackManager callbackManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,40 +55,44 @@ public class log_in extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         initviews();
+        
+    FacebookSdk.sdkInitialize(getApplicationContext());
 
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(getApplication());
 
 
         login.setOnClickListener(view -> {
-            /*convertviews();
-            loginUserAccount(email,password);*/
-            startActivity(new Intent(log_in.this,DoctorInfo.class));
+            convertviews();
+            loginUserAccount(email,password);
+            startActivity(new Intent(log_in.this,MainActivity.class));
         });
 
-        // Initialize Facebook Login button
-        mCallbackManager = CallbackManager.Factory.create();
-        loginButton = findViewById(R.id.login_button);
-        loginButton.setReadPermissions("email"); //.setPermissions(Arrays.asList(EMAIL,PUBLIC_PROFILE));
-        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+        callbackManager = CallbackManager.Factory.create();
+
+
+        loginButton.setPermissions(Arrays.asList(EMAIL));
+        // If you are using in a fragment, call loginButton.setFragment(this);
+
+        // Callback registration
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                // App code
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
             public void onCancel() {
-                Log.d(TAG, "facebook:onCancel");
+                // App code
+                Log.d("Facebook Login","CancelCall");
             }
 
             @Override
-            public void onError(FacebookException error) {
-                Log.d(TAG, "facebook:onError", error);
+            public void onError(FacebookException exception) {
+                // App code
+                Log.d("Facebook Login","ErrorCall"+exception);
             }
         });
-// ...
-
     }
 
 
@@ -95,6 +100,7 @@ public class log_in extends AppCompatActivity {
         Email = findViewById(R.id.til_l_email);
         Password = findViewById(R.id.til_l_pwd);
         login = findViewById(R.id.b_l_login);
+        loginButton = (LoginButton) findViewById(R.id.login_button);
 
     }
 
@@ -115,6 +121,21 @@ public class log_in extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void updateUI(FirebaseUser currentUser) {
+        if(currentUser==null)
+            Toast.makeText(this,"No User Logged In",Toast.LENGTH_LONG).show();
+        else
+            startActivity(new Intent(log_in.this,MainActivity.class));
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
@@ -139,20 +160,6 @@ public class log_in extends AppCompatActivity {
                         }
                     }
                 });
-    }
-    private void updateUI(FirebaseUser currentUser) {
-        if(currentUser==null)
-            Toast.makeText(this,"No User Logged In",Toast.LENGTH_LONG).show();
-        else
-            startActivity(new Intent(log_in.this,MainActivity.class));
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // Pass the activity result back to the Facebook SDK
-        mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

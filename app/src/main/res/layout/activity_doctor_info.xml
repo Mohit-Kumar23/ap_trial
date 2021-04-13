@@ -1,423 +1,450 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/white"
-    android:fillViewport="true"
     tools:context=".DoctorInfo">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_di_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:background="@drawable/gradient"
+        android:elevation="12dp"
+        app:layout_constraintBottom_toTopOf="@id/hguide_di_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/vguide_di_1"
-            android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/iv_btn_di_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:paddingLeft="@dimen/extra"
+        android:clickable="true"
+        android:src="@drawable/leftarrow"
+        android:translationZ="13dp"
+        app:layout_constraintBottom_toTopOf="@id/hguide_di_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hguide_di_1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.42" />
+            android:orientation="vertical" >
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/extra"
+                android:elevation="12dp"
+                app:cardBackgroundColor="#303030"
+                app:cardCornerRadius="1000dp"
+                app:layout_cardRadius="500"
+                app:layout_enableHighlight="true"
+                app:layout_enableShadow="true"
+                app:layout_highlightColor="#FFFFFF"
+                app:layout_highlightDx="-2dp"
+                app:layout_highlightDy="-2dp"
+                app:layout_highlightRadius="2dp"
+                app:layout_neu_backgroundColor="#EEEEEE"
+                app:layout_shadowColor="#40000000"
+                app:layout_shadowDx="2dp"
+                app:layout_shadowDy="2dp"
+                app:layout_shadowRadius="2dp">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.31" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="148dp"
+                    android:layout_height="148dp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="#EEEEEE"
+                    app:cardCornerRadius="1000dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardV_di_profile"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardCornerRadius="1000dp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_4"
-            app:layout_constraintEnd_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:id="@+id/user_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/profile" />
+                </androidx.cardview.widget.CardView>
 
-            <ImageView
-                android:id="@+id/imgV_di_profileImg"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@mipmap/appoindone_logo" />
+            </androidx.cardview.widget.CardView>
 
-        </androidx.cardview.widget.CardView>
-
-        <RatingBar
-            android:id="@+id/rtBar_di"
-            style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:clickable="false"
-            android:max="5"
-            android:progressTint="#FFF543"
-            android:rating="5"
-            android:stepSize="0.5"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_5"
-            app:layout_constraintEnd_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_4" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@id/hguide_di_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.03" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.09" />
-
-        <TextView
-            android:id="@+id/tv_di_nameTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_1"
-            tools:ignore="RtlSymmetry" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
-
-        <TextView
-            android:id="@+id/tv_di_drName"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="Dr. Mohit Kumar Chanchlani"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_2" />
-
-
-        <TextView
-            android:id="@+id/tv_di_didTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="Doctor ID"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_3" />
-
-        <TextView
-            android:id="@+id/tv_di_did"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="HS_28756"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_4" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.37" />
-
-        <TextView
-            android:id="@+id/tv_di_specalistTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="Specalist"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_6"
-            app:layout_constraintEnd_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.40" />
-
-        <TextView
-            android:id="@+id/tv_di_specalist"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:paddingStart="10dp"
-            android:text="General Purpose,Heart Suregon"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.46" />
-
-        <TextView
-            android:id="@+id/tv_di_hospitalTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="Hospital"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_8"
-            app:layout_constraintEnd_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_7" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.49" />
-
-        <TextView
-            android:id="@+id/tv_di_hospital"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="Station Medicare Centre"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_7" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.55" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/hguide_di_11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.60" />
-
-        <TextView
-            android:id="@+id/tv_di_locationTxt"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="Location"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_10"
-            app:layout_constraintEnd_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_9" />
-
-        <TextView
-            android:id="@+id/tv_di_location"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fontFamily="sans-serif-light"
-            android:gravity="center"
-            android:text="SMC,Nr. AFS School, AIR FORCE STATION Naliya,Kutch,Guj"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/hguide_di_11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/vguide_di_1"
-            app:layout_constraintTop_toTopOf="@+id/hguide_di_9" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.63" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.69" />
-
-        <TableLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/guideline4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:outlineProvider="none">
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="Day"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="Timing"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
+            <RatingBar
+                android:id="@+id/rtBar_di"
+                style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:clickable="false"
+                android:foregroundGravity="center"
+                android:max="5"
+                android:numStars="5"
+                android:paddingTop="10dp"
+                android:progressTint="#FFFF00"
+                android:rating="3.5"
+                android:stepSize="0.5"
+                app:layout_constraintHeight_max="50dp"
+                app:layout_constraintWidth_max="200dp" />
+
+            <TextView
+                android:id="@+id/tv_di_nameTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:fontFamily="sans-serif"
+                android:gravity="center_vertical"
+                android:text="Name : Dr. Mohit Kumar Chanchlani"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+
+            <TextView
+                android:id="@+id/tv_di_didTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:gravity="center_vertical"
+                android:text="Doctor ID : HSA_548741"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+            <TextView
+                android:id="@+id/tv_di_specialistTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:gravity="center_vertical"
+                android:text="Specialist : General Purpose,Heart Surgeon"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+            <TextView
+                android:id="@+id/tv_di_hospitalTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:gravity="center_vertical"
+                android:text="Hospital : Station Medicare Centre"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+            <TextView
+                android:id="@+id/tv_di_contactTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:gravity="center_vertical"
+                android:text="Contact No : 9574482523"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+            <TextView
+                android:id="@+id/tv_di_locationTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:gravity="center_vertical"
+                android:text="Location : SMC,Nr. AFS School, AIR FORCE STATION Naliya,Kutch,Guj"
+                android:textColor="@color/black"
+                android:textSize="@dimen/extra" />
+
+            <TableLayout
+                android:id="@+id/tableLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_mon_fri"
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:background="#FFFFFF"
-                    android:gravity="center"
-                    android:text="Mon-Fri"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:outlineProvider="none">
 
-                <TextView
-                    android:id="@+id/tv_mon_fri_time"
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2"
+                        android:background="#DCDCDC"
+                        android:gravity="center"
+                        android:text="Day"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="Timing"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra"
+                        android:textStyle="normal" />
+                </TableRow>
+
+                <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="6am-9pm"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </TableRow>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <TableRow
+                    <TextView
+                        android:id="@+id/tv_mon_fri"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="Mon-Fri"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+
+                    <TextView
+                        android:id="@+id/tv_mon_fri_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="6am-9pm"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="Saturday"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="8am-9pm"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_sun"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="2"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="Sunday"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+
+                    <TextView
+                        android:id="@+id/tv_sun_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="3"
+                        android:background="#dcdcdc"
+                        android:gravity="center"
+                        android:text="10am-9pm"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/extra" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="Mon-Fri"
+                    android:id="@+id/tv_di_appointDate"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|left"
+                    android:layout_marginRight="10dp"
+                    android:text="Appointment Date : "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="6am-9pm"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </TableRow>
+                <Button
+                    android:id="@+id/btn_di_selectDate"
+                    android:layout_width="115dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/button_gradient"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Select Date"
+                    android:textSize="14sp" />
 
-            <TableRow
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_sun"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="Sunday"
+                    android:id="@+id/tv_di_appointTime"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_vertical"
+                    android:text="Appointment Time : "
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/btn_di_selectTime"
+                    android:layout_width="115dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/button_gradient"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="Select Time"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:text="Crowdedness Level : "
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <com.marcinmoskala.arcseekbar.ArcSeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="300dp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/extra"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:maxProgress="100"
+                    app:progressBackgroundColor="#303030"
+                    app:progressBackgroundWidth="10dp"
+                    app:progressWidth="20dp"
+                    app:roundEdges="true"
+                    app:thumb="@drawable/thumb" />
 
                 <TextView
-                    android:id="@+id/tv_sun_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3"
-                    android:background="@drawable/view_border"
-                    android:gravity="center"
-                    android:text="6am-9pm"
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="MEDIUM"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </TableRow>
-        </TableLayout>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+                    app:layout_constraintEnd_toEndOf="@+id/seekBar"
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="@+id/seekBar"
+                    app:layout_constraintTop_toTopOf="@+id/seekBar"
+                    app:layout_constraintVertical_bias="0.738" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/extra"
+                android:layout_marginTop="@dimen/extra"
+                android:layout_marginRight="@dimen/extra"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/button_gradient"
+                android:text="Proceed"
+                android:textSize="25sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

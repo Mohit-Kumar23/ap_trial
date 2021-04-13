@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -434,4 +434,17 @@
         app:layout_constraintStart_toStartOf="@id/vguide_l_4"
         app:layout_constraintTop_toTopOf="@+id/hguide_l_7"/>
 
-</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        android:text="Continue with Facebook"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/hguide_l_13"
+        app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
+        app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_12" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
