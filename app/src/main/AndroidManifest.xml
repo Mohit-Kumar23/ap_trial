@@ -22,6 +22,7 @@
         <activity android:name=".sign_up" />
         <activity android:name=".tutorial_screen" />
         <activity android:name=".log_in" />
+        <activity android:name=".userinfo"/>
         <activity android:name=".splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

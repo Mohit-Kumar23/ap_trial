@@ -374,6 +374,7 @@
         app:layout_constraintTop_toTopOf="@+id/hguide_l_8" />
 
     <Button
+        android:id="@+id/btn_li_google"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/textbox_white"
