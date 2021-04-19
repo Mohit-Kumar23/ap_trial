@@ -11,7 +11,20 @@
     <string name="about_us"><big><font color="#303030">About Us</font></big></string>
     <string name="contact_us"><big><font color="#303030">Contact Us</font></big></string>
     <string name="log_out"><big><font color="#303030">Log Out</font></big></string>
+
     <string name="facebook_app_id">122440449817263</string>
     <string name="fb_login_protocol_scheme">fb122440449817263</string>
+
+
+    <string-array name="BloodGroup">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
 
 </resources>
