@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         floatingActionButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this,Search.class);
-            //startActivity(intent);
-            mAuth.signOut();
+            startActivity(intent);
+
         });
     }
 
