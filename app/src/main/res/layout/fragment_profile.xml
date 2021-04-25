@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context=".profileFragment">
+
+    <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+        android:id="@+id/neumorphicConstraintLayout"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="end"
+        app:enable_preview="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="12dp"
+            app:cardBackgroundColor="#303030"
+            app:cardCornerRadius="1000dp"
+            app:layout_cardRadius="500"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#FFFFFF"
+            app:layout_highlightDx="-2dp"
+            app:layout_highlightDy="-2dp"
+            app:layout_highlightRadius="2dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#40000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="2dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#EEEEEE"
+                app:cardCornerRadius="1000dp">
+
+                <ImageView
+                    android:id="@+id/user_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/photo" />
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+    </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_fp_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/extra"
+        android:text="User Name"
+        android:textColor="#303030"
+        android:textSize="@dimen/heading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/neumorphicConstraintLayout" />
+
+    <TextView
+        android:id="@+id/tv_fp_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/extra"
+        android:paddingStart="2dp"
+        android:text="User ID"
+        android:textColor="#303030"
+        android:textSize="@dimen/text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_fp_user_name" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="@dimen/pb"
+        android:background="@android:drawable/divider_horizontal_bright"
+        app:layout_constraintTop_toBottomOf="@id/tv_fp_user_id"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent"
+        android:theme="@style/bottomnavigationbutton"
+        app:itemHorizontalTranslationEnabled="true"
+        app:itemIconSize="25dp"
+        app:itemRippleColor="@color/transparent"
+        app:itemTextAppearanceActive="@style/TextStyleBNV"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:menu="@menu/profile_menu"/>
+
+    <FrameLayout
+        android:id="@+id/profile_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottomNavigationView2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

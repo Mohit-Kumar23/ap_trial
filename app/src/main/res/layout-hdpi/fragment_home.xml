@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#EEEEEE"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeFragment">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingStart="@dimen/extra"
+                android:paddingEnd="@dimen/extra"
+                android:text="Most Rated"
+                android:textColor="#303030"
+                android:textSize="@dimen/text" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@drawable/_black"
+                android:layout_marginStart="@dimen/extra"
+                android:layout_marginEnd="@dimen/extra"
+                android:contentDescription="TODO" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                android:translationZ="5dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingStart="@dimen/extra"
+                android:paddingEnd="@dimen/extra"
+                android:text="Near By"
+                android:textColor="#303030"
+                android:textSize="@dimen/text" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@drawable/_black"
+                android:layout_marginStart="@dimen/extra"
+                android:layout_marginEnd="@dimen/extra"
+                android:contentDescription="TODO" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                android:translationZ="5dp"/>
+     </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

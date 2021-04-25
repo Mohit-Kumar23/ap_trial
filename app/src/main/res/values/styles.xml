@@ -7,13 +7,22 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
-    <style name="bottomnavigationbutton" parent="Theme.MaterialComponents"/>
+    <style name="bottomnavigationbutton" parent="Theme.MaterialComponents">
+        <item name="colorPrimary">#303030</item>
+        <item name="colorOnSurface">#303030</item>
+    </style>
     <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
-
+    <style name="TextStyleBNV">
+        <item name="android:textSize">@dimen/bnv</item>
+    </style>
+    <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:textColor">#303030</item>
+    </style>
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">25sp</item>

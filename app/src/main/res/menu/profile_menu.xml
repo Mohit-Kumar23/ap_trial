@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group><item android:id="@+id/general_details"
+        android:title="General Details"
+        android:icon="@drawable/general_details_icon"/></group>
+    <item android:id="@+id/personal_details"
+        android:title="Personal Details"
+        android:icon="@drawable/personal_details_icon"/>
+    <item android:id="@+id/medical_details"
+        android:title="Medical Details"
+        android:icon="@drawable/medical_details_icon"/>
+</menu>

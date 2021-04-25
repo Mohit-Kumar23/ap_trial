@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="@+id/vguide_ss_2"
         app:layout_constraintTop_toTopOf="@+id/hguide_ss_4"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/loading"
-        app:lottie_repeatCount="2" />
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
