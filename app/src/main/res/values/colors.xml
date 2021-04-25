@@ -7,4 +7,5 @@
     <color name="dots">#70FFFFFF</color>
     <color name="erroricon">#FF0000</color>
     <color name="green">#00FF00</color>
+    <color name="transparent">#00000000</color>
 </resources>

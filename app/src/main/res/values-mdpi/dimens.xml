@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="heading">30sp</dimen>
+    <dimen name="app">25sp</dimen>
     <dimen name="text">16sp</dimen>
     <dimen name="extra">12sp</dimen>
     <dimen name="pb">0dp</dimen>
+    <dimen name="bnv">8sp</dimen>
 </resources>

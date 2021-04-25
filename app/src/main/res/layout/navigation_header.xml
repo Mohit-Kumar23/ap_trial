@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profile" />
+                    android:src="@drawable/photo" />
             </androidx.cardview.widget.CardView>
         </androidx.cardview.widget.CardView>
     </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

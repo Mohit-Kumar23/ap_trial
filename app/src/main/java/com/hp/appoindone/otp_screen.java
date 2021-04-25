@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -17,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +29,7 @@ public class otp_screen extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     EditText editText1,editText2,editText3,editText4,editText5,editText6;
-    String phone_no,email,pwd,systemcode,txt;
+    String phone_no,email,pwd,first_name,last_name,systemcode,txt;
     TextView textview,resend;
     Button button;
     Timer time;
@@ -37,6 +41,8 @@ public class otp_screen extends AppCompatActivity {
         phone_no = getIntent().getStringExtra("phone_no");
         email = getIntent().getStringExtra("email");
         pwd = getIntent().getStringExtra("pwd");
+        first_name = getIntent().getStringExtra("first_name");
+        last_name = getIntent().getStringExtra("last_name");
         initviews();
         otpview();
         txt="Enter OTP code sent to your number \n"+ phone_no;
@@ -103,6 +109,7 @@ public class otp_screen extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         updateUI();
+                        store_data();
                     } else {
                         Toast.makeText(otp_screen.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
@@ -123,7 +130,7 @@ public class otp_screen extends AppCompatActivity {
         dialog.startloadingdialog();
         time = new Timer();
         Handler handler = new Handler();
-        handler.postDelayed(() -> dialog.dismissdialog(),3000);
+        handler.postDelayed(dialog::dismissdialog,3000);
         time.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -132,7 +139,17 @@ public class otp_screen extends AppCompatActivity {
                 finish();
             }
         },3000);
-        }
+
+    }
+
+    public void store_data(){
+        FirebaseDatabase rootnode = FirebaseDatabase.getInstance();
+        DatabaseReference reference = rootnode.getReference("user");
+        userclass adduser = new userclass(phone_no,email,first_name,last_name);
+        reference.child(phone_no).setValue(adduser);
+        SessionManagement sessionManagement = new SessionManagement(otp_screen.this);
+        //SessionManagement.saveSession();
+    }
 
     public void otpview(){
         editText1.addTextChangedListener(new TextWatcher() {

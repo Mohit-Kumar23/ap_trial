@@ -4,4 +4,6 @@
     <dimen name="text">35sp</dimen>
     <dimen name="extra">25sp</dimen>
     <dimen name="pb">15dp</dimen>
+    <dimen name="bnv">12sp</dimen>
+
 </resources>
