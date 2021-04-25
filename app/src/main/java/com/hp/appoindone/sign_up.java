@@ -68,11 +68,12 @@ public class sign_up extends AppCompatActivity {
         }
         else {
             String Phone_No = "+91"+phone_no;
-            Log.v("Phone",Phone_No);
             Intent intent = new Intent(sign_up.this,otp_screen.class);
             intent.putExtra("phone_no",Phone_No.trim());
             intent.putExtra("email",email);
             intent.putExtra("pwd",password);
+            intent.putExtra("first_name",first_name);
+            intent.putExtra("last_name",last_name);
             startActivity(intent);
         }
     }

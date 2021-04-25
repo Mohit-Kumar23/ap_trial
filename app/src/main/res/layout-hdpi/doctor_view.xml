@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/dv"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+        android:layout_width="220dp"
+        android:layout_height="320dp"
+        app:enable_preview="true"
+        android:background="#EEEEEE">
+
+        <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
+            android:id="@+id/neumorphicCardView"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            app:layout_cardRadius="50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#FFFFFF"
+            app:layout_highlightDx="-2dp"
+            app:layout_highlightDy="-2dp"
+            app:layout_highlightRadius="2dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#50000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="2dp"/>
+
+       <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
+            android:id="@+id/cardView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/extra"
+            android:elevation="12dp"
+            app:cardBackgroundColor="#303030"
+            app:cardCornerRadius="1000dp"
+            app:layout_cardRadius="500"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toBottomOf="@+id/neumorphicCardView"
+            app:layout_constraintEnd_toEndOf="@+id/neumorphicCardView"
+            app:layout_constraintStart_toStartOf="@+id/neumorphicCardView"
+            app:layout_constraintTop_toTopOf="@+id/neumorphicCardView"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#FFFFFF"
+            app:layout_highlightDx="-2dp"
+            app:layout_highlightDy="-2dp"
+            app:layout_highlightRadius="2dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#50000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="2dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="98dp"
+                android:layout_height="98dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="#EEEEEE"
+                app:cardCornerRadius="1000dp">
+
+                <ImageView
+                    android:id="@+id/user_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+        </com.thelumiereguy.neumorphicview.views.NeumorphicCardView>
+
+        <RatingBar
+            android:id="@+id/rb_dv_ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:progressBackgroundTint="#DDDDDD"
+            android:progressTint="#FFFF00"
+            android:rating="0"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:stepSize="0.5"
+            app:layout_constraintBottom_toTopOf="@id/tv_dv_name"
+            app:layout_constraintEnd_toEndOf="@+id/neumorphicCardView"
+            app:layout_constraintStart_toStartOf="@+id/neumorphicCardView"
+            app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+        <TextView
+            android:id="@+id/tv_dv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingStart="@dimen/extra"
+            android:paddingEnd="@dimen/extra"
+            android:text="Name"
+            android:textColor="#303030"
+            android:textSize="@dimen/text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_dv_specialist"
+            app:layout_constraintEnd_toEndOf="@+id/neumorphicCardView"
+            app:layout_constraintStart_toStartOf="@+id/neumorphicCardView"
+            app:layout_constraintTop_toBottomOf="@id/rb_dv_ratingBar" />
+
+        <TextView
+            android:id="@+id/tv_dv_specialist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingStart="@dimen/extra"
+            android:paddingEnd="@dimen/extra"
+            android:text="Specialist"
+            android:textSize="@dimen/text"
+            android:textColor="#303030"
+            app:layout_constraintTop_toBottomOf="@id/tv_dv_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_dv_area"
+            app:layout_constraintEnd_toEndOf="@+id/neumorphicCardView"
+            app:layout_constraintStart_toStartOf="@+id/neumorphicCardView" />
+
+        <TextView
+            android:id="@+id/tv_dv_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingStart="@dimen/extra"
+            android:paddingEnd="@dimen/extra"
+            android:text="Area, City"
+            android:textSize="@dimen/text"
+            android:textColor="#303030"
+            app:layout_constraintTop_toBottomOf="@id/tv_dv_specialist"
+            app:layout_constraintBottom_toBottomOf="@+id/neumorphicCardView"
+            app:layout_constraintEnd_toEndOf="@+id/neumorphicCardView"
+            app:layout_constraintStart_toStartOf="@+id/neumorphicCardView" />
+
+    </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+</androidx.cardview.widget.CardView>
