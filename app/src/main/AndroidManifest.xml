@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/appoindone_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".DoctorInfo"></activity>
         <activity
             android:name=".Search"
@@ -24,13 +24,15 @@
         <activity android:name=".sign_up" />
         <activity android:name=".tutorial_screen" />
         <activity android:name=".log_in" />
-        <activity android:name=".userinfo" />
-        <activity android:name=".splash_screen">
+        <activity android:name=".userinfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".splash_screen">
+
         </activity>
         <activity android:name=".MainActivity" />
 
