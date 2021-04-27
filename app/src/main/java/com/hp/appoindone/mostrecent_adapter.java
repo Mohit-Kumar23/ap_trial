@@ -53,7 +53,7 @@ public class mostrecent_adapter extends FirebaseRecyclerAdapter<doctorclass,most
         NeumorphicCardView neumorphicCardView;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
-            user_photo = (ImageView)itemView.findViewById(R.id.user_photo);
+            user_photo = (ImageView)itemView.findViewById(R.id.specialist_photo);
             name = (TextView)itemView.findViewById(R.id.tv_dv_name);
             specialist = (TextView)itemView.findViewById(R.id.tv_dv_specialist);
             area = (TextView)itemView.findViewById(R.id.tv_dv_area);

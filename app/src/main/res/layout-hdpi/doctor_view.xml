@@ -66,7 +66,7 @@
                 app:cardCornerRadius="1000dp">
 
                 <ImageView
-                    android:id="@+id/user_photo"
+                    android:id="@+id/specialist_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"/>

@@ -38,6 +38,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.util.List;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
     LottieAnimationView toggle;
     FrameLayout frameLayout;
+    NavigationView navigationView;
     CoordinatorLayout coordinatorLayout;
     String pincode;
 
@@ -118,6 +121,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.log_out: FirebaseAuth.getInstance().signOut();
+                                        return true;
+                    default: return false;
+                }
+
+            }
+        });
     }
 
     private void checkInternet() {
@@ -151,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         toggle = findViewById(R.id.hamburger);
         frameLayout = findViewById(R.id.frame_layout);
         coordinatorLayout = findViewById(R.id.bn_am_cl);
+        navigationView = findViewById(R.id.navigation_view);
     }
 
 }
