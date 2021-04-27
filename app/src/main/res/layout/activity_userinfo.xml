@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".DoctorInfo">
+    android:theme="@style/Theme.AppCompat"
+    tools:context=".userinfo">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/hguide_di_1"
@@ -39,219 +40,768 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hguide_di_1">
+        app:layout_constraintTop_toBottomOf="@id/hguide_di_1">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/extra"
-                android:elevation="12dp"
-                app:cardBackgroundColor="#303030"
-                app:cardCornerRadius="1000dp"
-                app:layout_cardRadius="500"
-                app:layout_enableHighlight="true"
-                app:layout_enableShadow="true"
-                app:layout_highlightColor="#FFFFFF"
-                app:layout_highlightDx="-2dp"
-                app:layout_highlightDy="-2dp"
-                app:layout_highlightRadius="2dp"
-                app:layout_neu_backgroundColor="#EEEEEE"
-                app:layout_shadowColor="#40000000"
-                app:layout_shadowDx="2dp"
-                app:layout_shadowDy="2dp"
-                app:layout_shadowRadius="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="148dp"
-                    android:layout_height="148dp"
+                <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
                     android:layout_gravity="center"
-                    app:cardBackgroundColor="#EEEEEE"
-                    app:cardCornerRadius="1000dp">
+                    android:layout_marginTop="@dimen/extra"
+                    app:enable_preview="true">
 
-                    <ImageView
-                        android:id="@+id/specialist_photo"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:elevation="12dp"
+                        app:cardBackgroundColor="#303030"
+                        app:cardCornerRadius="1000dp"
+                        app:layout_cardRadius="500"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="2dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#40000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="2dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="148dp"
+                            android:layout_height="148dp"
+                            android:layout_gravity="center"
+                            app:cardBackgroundColor="#EEEEEE"
+                            app:cardCornerRadius="1000dp">
+
+                            <ImageView
+                                android:id="@+id/user_photo"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/photo" />
+                        </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicCardView>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_name"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/profile" />
-                </androidx.cardview.widget.CardView>
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
 
-            </androidx.cardview.widget.CardView>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Name"
+                            android:inputType="textPersonName"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
 
-            <EditText
-                android:id="@+id/et_ui_nameTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:fontFamily="sans-serif"
-                android:gravity="center_vertical"
-                android:hint="Name"
-                android:paddingLeft="10dp"
-                android:textColorHint="@color/black"
-                android:background="@drawable/edittext_white"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
 
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
 
-            <EditText
-                android:id="@+id/et_ui_eid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:gravity="center_vertical"
-                android:hint="Email"
-                android:textColorHint="@color/black"
-                android:paddingLeft="10dp"
-                android:background="@drawable/edittext_white"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Email ID"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
 
-            <EditText
-                android:id="@+id/et_ui_pn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:gravity="center_vertical"
-                android:hint="PhoneNumber"
-                android:textColorHint="@color/black"
-                android:background="@drawable/edittext_white"
-                android:textColor="@color/black"
-                android:paddingLeft="10dp"
-                android:textSize="25sp" />
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
 
-            <TextView
-                android:id="@+id/et_ui_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:gravity="center_vertical"
-                android:hint="Description"
-                android:textColorHint="@color/black"
-                android:background="@drawable/edittext_white"
-                android:paddingLeft="10dp"
-                android:textColor="@color/black"
-                android:textSize="25sp"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_phoneno"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_phoneno"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Phone No."
+                            android:inputType="phone"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:orientation="horizontal">
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:id="@+id/neumorphicConstraintLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#EEEEEE"
+                    android:paddingStart="@dimen/extra"
+                    android:paddingEnd="@dimen/extra"
+                    app:enable_preview="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
 
-                <EditText
-                    android:id="@+id/tv_di_appointDate"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|left"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:text="Age"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    <RadioGroup
+                        android:id="@+id/radiogroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_cardRadius="70"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Blood Group"
-                    android:textColor="@color/black" />
+                        <RadioButton
+                            android:id="@+id/rb_ui_male"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:buttonTint="#50303030"
+                            android:text="Male"
+                            android:textAlignment="center"
+                            android:textColor="#50303030"
+                            android:textSize="@dimen/text" />
 
-                <Spinner
-                    android:id="@+id/btn_di_selectDate"
-                    android:layout_width="80dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:background="@drawable/edittext_white"
-                    android:entries="@array/BloodGroup"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:textSize="14sp" />
+                        <RadioButton
+                            android:id="@+id/rb_ui_female"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:buttonTint="#50303030"
+                            android:text="Female"
+                            android:textAlignment="center"
+                            android:textColor="#50303030"
+                            android:textSize="@dimen/text" />
 
+                        <RadioButton
+                            android:id="@+id/rb_ui_other"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:buttonTint="#50303030"
+                            android:text="Other"
+                            android:textAlignment="center"
+                            android:textColor="#50303030"
+                            android:textSize="@dimen/text" />
+
+                    </RadioGroup>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/transparent"
+                    app:boxStrokeErrorColor="@color/transparent"
+                    app:boxStrokeWidth="0dp"
+                    app:errorEnabled="false"
+                    android:paddingStart="@dimen/extra"
+                    android:paddingEnd="@dimen/extra"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <Spinner
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:entries="@array/BloodGroup"
+                        android:theme="@style/mySpinnerItemStyle"
+                        android:popupElevation="@dimen/extra"
+                        android:popupTheme="@style/Widget.AppCompat.Light.PopupMenu.Overflow"
+                        android:popupBackground="@color/white"
+                        app:layout_cardRadius="70"
+                        android:layout_marginEnd="@dimen/bnv"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/guideline2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp" />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:background="@color/transparent"
+                        android:inputType="number"
+                        app:layout_constraintStart_toStartOf="@id/guideline2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_cardRadius="70"
+                        android:layout_marginStart="@dimen/bnv"
+                        android:hint="Age"
+                        android:textColorHint="#50303030"
+                        android:textSize="@dimen/text"
+                        android:textColor="#303030"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/extra"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp"
+                        />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline2"
+                        android:translationZ="@dimen/extra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_add"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Address"
+                            android:inputType="textPostalAddress"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Area"
+                            android:inputType="textPostalAddress"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="City"
+                            android:inputType="textPostalAddress"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_ui_pincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="@dimen/extra"
+                        android:layout_marginEnd="@dimen/extra"
+                        android:gravity="center_vertical"
+                        android:padding="10dp"
+                        app:boxBackgroundMode="outline"
+                        app:boxStrokeColor="@color/white"
+                        app:boxStrokeErrorColor="@color/white"
+                        app:boxStrokeWidth="0dp"
+                        app:errorEnabled="false"
+                        app:errorIconDrawable="@drawable/error_icon"
+                        app:errorIconTint="@color/erroricon"
+                        app:errorTextColor="@color/primarydark"
+                        app:hintEnabled="false"
+                        app:layout_cardRadius="70"
+                        app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+                        app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+                        app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+                        app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_ui_pincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/transparent"
+                            android:hint="Pin Code"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="@dimen/text"
+                            android:paddingRight="@dimen/text"
+                            android:textColor="#303030"
+                            android:textColorHint="#50303030"
+                            android:textSize="@dimen/text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+                <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="#EEEEEE"
+                    android:paddingTop="@dimen/pb"
+                    app:enable_preview="true"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-3dp"
+                    app:layout_highlightDy="-3dp"
+                    app:layout_highlightRadius="3dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#80000000"
+                    app:layout_shadowDx="3dp"
+                    app:layout_shadowDy="3dp"
+                    app:layout_shadowRadius="3dp">
+
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:background="@drawable/button_gradient"
+                        android:text="Submit"
+                        android:textSize="@dimen/text"
+                        app:layout_cardRadius="80"
+                        app:layout_constraintStart_toStartOf="@id/vguide_s_2"
+                        app:layout_constraintEnd_toEndOf="@id/vguide_s_3"
+                        android:textColor="#EEEEEE"
+                        app:layout_enableHighlight="true"
+                        app:layout_enableShadow="true"
+                        app:layout_highlightColor="#FFFFFF"
+                        app:layout_highlightDx="-2dp"
+                        app:layout_highlightDy="-2dp"
+                        app:layout_highlightRadius="3dp"
+                        app:layout_neu_backgroundColor="#EEEEEE"
+                        app:layout_shadowColor="#80000000"
+                        app:layout_shadowDx="2dp"
+                        app:layout_shadowDy="2dp"
+                        app:layout_shadowRadius="3dp"/>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/vguide_s_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.27" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/vguide_s_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.72" />
+
+                </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_di_appointTime"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|right"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:text="Appointment Time : "
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <Button
-                    android:id="@+id/btn_di_selectTime"
-                    android:layout_width="115dp"
-                    android:layout_height="45dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@drawable/button_gradient"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:text="Select Time"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|left"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:text="Crowdedness Level : "
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/extra"
-                android:layout_marginTop="@dimen/extra"
-                android:layout_marginRight="@dimen/extra"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/button_gradient"
-                android:text="Proceed"
-                android:textSize="25sp" />
-
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
