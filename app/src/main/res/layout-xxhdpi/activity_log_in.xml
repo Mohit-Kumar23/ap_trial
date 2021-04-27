@@ -391,6 +391,7 @@
         app:layout_constraintTop_toTopOf="@+id/hguide_l_10" />
 
 
+
     <TextView
         android:id="@+id/tv_l_tc"
         android:layout_width="wrap_content"
