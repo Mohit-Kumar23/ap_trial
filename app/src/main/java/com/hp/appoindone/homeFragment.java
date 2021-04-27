@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -43,9 +44,10 @@ import java.util.Locale;
 
 public class homeFragment extends Fragment{
 
-    RecyclerView recView, recView2;
+    RecyclerView recView, recView2,recView3;
     mostrecent_adapter mrAdapter;
     nearby_adapter nbAdapter;
+    category_adapter catAdapter;
     String pincode;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -66,7 +68,10 @@ public class homeFragment extends Fragment{
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("doctor"), doctorclass.class)
                         .build();
         mrAdapter = new mostrecent_adapter(options);
+
         firebaseNearBy();
+        categoryList();
+
     }
 
     private void firebaseNearBy() {
@@ -75,6 +80,15 @@ public class homeFragment extends Fragment{
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("doctor").orderByChild("pincode").startAt(pincode).endAt(pincode+"\uf8ff"), doctorclass.class)
                         .build();
         nbAdapter = new nearby_adapter(options1);
+    }
+
+    public void categoryList()
+    {
+         FirebaseRecyclerOptions<categoryClass> options2 =
+                new FirebaseRecyclerOptions.Builder<categoryClass>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("specialist"),categoryClass.class)
+                        .build();
+        catAdapter = new category_adapter(options2);
     }
 
     @Override
@@ -87,6 +101,9 @@ public class homeFragment extends Fragment{
         recView2 = view.findViewById(R.id.recView2);
         recView2.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
         recView2.setAdapter(nbAdapter);
+        recView3 = view.findViewById(R.id.recView3);
+        recView3.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.HORIZONTAL,false));
+        recView3.setAdapter(catAdapter);
         return view;
     }
 
@@ -146,6 +163,7 @@ public class homeFragment extends Fragment{
         super.onStart();
         mrAdapter.startListening();
         nbAdapter.startListening();
+        catAdapter.startListening();
     }
 
     @Override
@@ -153,6 +171,7 @@ public class homeFragment extends Fragment{
         super.onStop();
         mrAdapter.stopListening();
         nbAdapter.stopListening();
+        catAdapter.stopListening();
     }
 
 

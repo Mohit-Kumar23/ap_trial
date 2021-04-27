@@ -148,7 +148,7 @@ public class splash_screen extends AppCompatActivity {
     }
 
     public void nxtscreen(){
-        Intent intent = new Intent(splash_screen.this,MainActivity.class);
+        Intent intent = new Intent(splash_screen.this,tutorial_screen.class);
         intent.putExtra("pincodepass",pincode);
         finish();
         startActivity(intent);

@@ -57,6 +57,29 @@
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="true"
                 android:translationZ="5dp"/>
-     </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingStart="@dimen/extra"
+                android:paddingEnd="@dimen/extra"
+                android:text="Category"
+                android:textColor="#303030"
+                android:textSize="@dimen/text" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@drawable/_black"
+                android:layout_marginStart="@dimen/extra"
+                android:layout_marginEnd="@dimen/extra"
+                android:contentDescription="TODO" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="true"
+                android:translationZ="5dp"/>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>
