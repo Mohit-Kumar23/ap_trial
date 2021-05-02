@@ -33,6 +33,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -55,15 +56,20 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     CoordinatorLayout coordinatorLayout;
     String pincode;
+    log_in lg_obj;
+    splash_screen spls_obj;
 
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lg_obj = new log_in();
+        spls_obj = new splash_screen();
+        Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
         initviews();
         checkInternet();
-        pincode = getIntent().getStringExtra("pincodepass");
+        pincode = spls_obj.pincode; //getIntent().getStringExtra("pincodepass");
         Log.i("pincode_mainactivity",String.valueOf(pincode));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -127,8 +133,19 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.log_out: FirebaseAuth.getInstance().signOut();
-                                        return true;
+                    case R.id.log_out: {
+                                        if(lg_obj.signIn_flag!=1) {
+                                            FirebaseAuth.getInstance().signOut();
+                                        }
+                                       else {
+                                                FirebaseAuth.getInstance().signOut();
+                                                lg_obj.mGoogleSignInClient.signOut();
+
+                                            }
+                                       startActivity(new Intent(MainActivity.this,tutorial_screen.class));
+                                       finish();
+                                       }
+                                       return true;
                     default: return false;
                 }
 
@@ -169,5 +186,6 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout = findViewById(R.id.bn_am_cl);
         navigationView = findViewById(R.id.navigation_view);
     }
+
 
 }

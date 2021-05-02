@@ -31,6 +31,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
 import java.util.List;
@@ -148,12 +149,21 @@ public class splash_screen extends AppCompatActivity {
     }
 
     public void nxtscreen(){
-        Intent intent = new Intent(splash_screen.this,tutorial_screen.class);
-        intent.putExtra("pincodepass",pincode);
-        startActivity(intent);
+        if(FirebaseAuth.getInstance().getCurrentUser()==null)
+        {
+            Intent intent = new Intent(splash_screen.this, tutorial_screen.class);
+            //intent.putExtra("pincodepass", pincode);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(splash_screen.this,MainActivity.class);
+            //intent.putExtra("pincodepass",pincode);
+            startActivity(intent);
+        }
     }
 
-    @Override
+   /* @Override
     protected void onResume() {
         super.onResume();
         Handler handler = new Handler();
@@ -164,5 +174,5 @@ public class splash_screen extends AppCompatActivity {
                 }
             }
         }, 5000);
-    }
+    }*/
 }
