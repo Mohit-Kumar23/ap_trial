@@ -28,7 +28,14 @@
         <item name="android:textSize">@dimen/text</item>
         <item name="android:colorPrimary">@color/white</item>
     </style>
+<<<<<<< HEAD
+    <style name="toggle" parent="Theme.MaterialComponents">
+        <item name="colorSurface" >#303030</item>
+        <item name="colorOnSurface">#CCCCCC</item>
+        <item name="colorSecondary">#209cff</item>
+=======
     <style name="myFAB" >
         <item name="android:strokeColor">@color/black</item>
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
     </style>
 </resources>

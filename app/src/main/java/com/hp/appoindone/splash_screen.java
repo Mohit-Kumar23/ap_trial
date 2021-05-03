@@ -1,29 +1,28 @@
 package com.hp.appoindone;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
 import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+<<<<<<< HEAD
+import com.google.firebase.auth.FirebaseAuth;
+=======
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -39,115 +38,115 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 
 public class splash_screen extends AppCompatActivity {
-    FusedLocationProviderClient fusedLocationProviderClient;
     String pincode;
+    TextView textView;
+    int flag=0;
+    String msg;
+    int REQUEST_CODE = 44;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        Handler handler = new Handler();
-        handler. postDelayed(new Runnable() {
-            public void run() {
-                if(islocationenabled()){
-                    getlocation();
+        textView = findViewById(R.id.tv_ss_notifier);
+        if(!islocationenabled()){
+            flag=1;
+            Handler handler = new Handler();
+            handler. postDelayed(new Runnable() {
+                public void run() {
+                     textView.setText("WE ARE TAKING YOU TO LOCATION SETTING PLEASE ENABLE IT");
                 }
-            }
-        }, 5000);
-    }
-
-    @SuppressLint("MissingPermission")
-    private void getlocation() {
-        Log.i("pin","getlocation");
-        if (checkpermission()){
-            Log.i("pin","ifcheckpermission");
-            if(islocationenabled()){
-                Log.i("pin","ifislocationenabled");
-                fusedlocationlistener();
-            }
-            else {
-                Log.i("pin","elseislocationenabled");
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
-            }
+            }, 2000);
+            Handler handler1 = new Handler();
+            handler1. postDelayed(new Runnable() {
+                public void run() {
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(intent);
+                }
+            }, 3000);
         }
-        else {
-            Log.i("pin","elsecheckpermission");
-            requestPermissions();
-            if(islocationenabled()){
-                Log.i("pin","ifislocationenabled");
-                fusedlocationlistener();
-            }
-            else {
-                Log.i("pin","elseislocationenabled");
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
-            }
+        else{
+            Handler handler2 = new Handler();
+            handler2. postDelayed(new Runnable() {
+                public void run() {
+                    islocationallowed();
+                }
+            }, 2000);
         }
     }
 
-    private boolean checkpermission(){
-        Log.i("pin","checkpermission function");
-        return ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
-    }
-
-    private void requestPermissions(){
-        Log.i("pin","requestpermission function");
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},44);
-
-    }
-
-    private boolean islocationenabled(){
-        Log.i("pin","islocationenabled function");
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-    }
-
-    @SuppressLint("MissingPermission")
-    public void fusedlocationlistener(){
-        Log.i("pin","fusedlocationlistener function");
-        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                Log.i("pin","oncomplete");
-                Location location = task.getResult();
-                if(location == null){
-                    Log.i("pin","location = null");
-                }
-                else {
-                    Log.i("pin","location ! null");
-                    Log.i("pincode",String.valueOf(location.getLatitude()));
-                    Geocoder geocoder = new Geocoder(splash_screen.this, Locale.ENGLISH);
-                    try {
-                        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(), 1);
-                        pincode = addresses.get(0).getPostalCode();
-                        Log.i("new pincode",String.valueOf(pincode));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                nxtscreen();
-            }
-        });
+    private void islocationallowed(){
+        if ((ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) && (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
+            Log.i("heet", "moving to next without checking");
+            serviceCheck();
+        } else {
+            Log.i("heet", "checking permision");
+            ActivityCompat.requestPermissions(splash_screen.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
+        }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.i("pin","onrequestpermissionresult function");
-        if(requestCode == 44){
+        if(requestCode == REQUEST_CODE){
             if(grantResults.length > 0  && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                fusedlocationlistener();
-                Log.i("pin","onRequestPermissionResult");
+                Log.i("heetheet","onRequestPermissionResult");
+                serviceCheck();
             }
-
+        }
+        if(requestCode == 45){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                nxtscreen();
+            }
+            else{
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.FOREGROUND_SERVICE},45);
+            }
         }
     }
 
+    private boolean islocationenabled(){
+        Log.i("pin","islocationenabled function");
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+    }
+
+    public void nxtscreen(){
+        Log.i("heetonstartservice","start");
+        Intent intent = new Intent(this, LocationServices.class);
+        intent.setAction(Constants.ACTION_START_LOCATION_SERVICE);
+        startService(intent);
+        if(FirebaseAuth.getInstance().getCurrentUser()==null)
+        {
+            Intent intent1 = new Intent(splash_screen.this,tutorial_screen.class);
+            startActivity(intent1);
+        }
+        else
+        {
+            Intent intent1 = new Intent(splash_screen.this,MainActivity.class);
+            startActivity(intent1);
+        }
+    }
+
+    public void serviceCheck(){
+        if (ActivityCompat.checkSelfPermission(this,Manifest.permission.FOREGROUND_SERVICE)==PackageManager.PERMISSION_GRANTED){
+            nxtscreen();
+        }
+        else{
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.FOREGROUND_SERVICE},45);
+        }
+    }
+
+<<<<<<< HEAD
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(flag==1){
+            msg = "pauseForLocation";
+=======
     public void nxtscreen(){
         if(FirebaseAuth.getInstance().getCurrentUser()==null)
         {
@@ -160,19 +159,42 @@ public class splash_screen extends AppCompatActivity {
             Intent intent = new Intent(splash_screen.this,MainActivity.class);
             //intent.putExtra("pincodepass",pincode);
             startActivity(intent);
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         }
     }
 
    /* @Override
     protected void onResume() {
         super.onResume();
-        Handler handler = new Handler();
-        handler. postDelayed(new Runnable() {
-            public void run() {
-                if(islocationenabled()){
-                    getlocation();
-                }
+        if(flag==1 && msg == ("pauseForLocation"))
+        {
+            if(islocationenabled())
+            {
+                textView.setText("");
+                flag = 0;
+                msg = "";
+                islocationallowed();
             }
+<<<<<<< HEAD
+            else{
+                Handler handler = new Handler();
+                handler. postDelayed(new Runnable() {
+                    public void run() {
+                        textView.setText("PLEASE START LOCATION TO ENABLE VARIOUS FEATURES");
+                    }
+                }, 1000);
+                Handler handler1 = new Handler();
+                handler1. postDelayed(new Runnable() {
+                    public void run() {
+                        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        startActivity(intent);
+                    }
+                }, 3000);
+            }
+        }
+    }
+=======
         }, 5000);
     }*/
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 }

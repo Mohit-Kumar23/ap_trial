@@ -10,9 +10,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Looper;
 import android.provider.Settings;
+import android.transition.TransitionInflater;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -90,6 +93,7 @@ public class homeFragment extends Fragment{
                         .build();
         catAdapter = new category_adapter(options2);
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

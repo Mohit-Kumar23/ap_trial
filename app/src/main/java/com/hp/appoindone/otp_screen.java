@@ -146,9 +146,7 @@ public class otp_screen extends AppCompatActivity {
         FirebaseDatabase rootnode = FirebaseDatabase.getInstance();
         DatabaseReference reference = rootnode.getReference("user");
         userclass adduser = new userclass(phone_no,email,first_name,last_name);
-        reference.child(phone_no).setValue(adduser);
-        SessionManagement sessionManagement = new SessionManagement(otp_screen.this);
-        //SessionManagement.saveSession();
+        reference.child(email).setValue(adduser);
     }
 
     public void otpview(){

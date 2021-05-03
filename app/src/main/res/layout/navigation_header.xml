@@ -9,7 +9,21 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="end"
-        app:enable_preview="true">
+        app:enable_preview="true"
+        app:cardBackgroundColor="#303030"
+        app:cardCornerRadius="1000dp"
+        app:layout_cardRadius="500"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#FFFFFF"
+        app:layout_highlightDx="-2dp"
+        app:layout_highlightDy="-2dp"
+        app:layout_highlightRadius="2dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#40000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="2dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="100dp"
@@ -42,7 +56,7 @@
                 app:cardCornerRadius="1000dp">
 
                 <ImageView
-                    android:id="@+id/specialist_photo"
+                    android:id="@+id/patient_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"

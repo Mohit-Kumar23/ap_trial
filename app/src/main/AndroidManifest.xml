@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hp.appoindone">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION " />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION "/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:allowBackup="true"
@@ -15,9 +17,12 @@
         android:roundIcon="@mipmap/appoindone_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+=======
         <activity android:name=".confirmAppoint"/>
 
 
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         <activity android:name=".DoctorInfo" />
         <activity
             android:name=".Search"
@@ -25,17 +30,32 @@
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".otp_screen" />
         <activity android:name=".sign_up" />
+<<<<<<< HEAD
+        <activity android:name=".tutorial_screen">
+
+        </activity>
+        <activity android:name=".log_in" />
+        <activity android:name=".userinfo" />
+        <activity android:name=".MainActivity" >
+=======
         <activity android:name=".tutorial_screen" />
         <activity android:name=".log_in"/>
 
         <activity android:name=".userinfo" />
         <activity android:name=".MainActivity" />
         <activity android:name=".splash_screen" >
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
+        </activity>
+        <activity android:name=".splash_screen">
+
+=======
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         </activity>
 
         <meta-data
@@ -61,6 +81,9 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+        <service android:name=".LocationServices"
+            android:enabled="true"
+            android:exported="false"/>
     </application>
 
 </manifest>

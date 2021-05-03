@@ -27,6 +27,12 @@
         <item><font color="#303030">AB +ve</font></item>
         <item><font color="#303030">AB -ve</font></item>
     </string-array>
+    <string-array name="Addiction">
+        <item><font color="#80303030">Period</font></item>
+        <item><font color="#303030">Regular</font></item>
+        <item><font color="#303030">Weekly</font></item>
+        <item><font color="#303030">Occasionally</font></item>
+    </string-array>
 
     <string name="hello"><b>Hello</b></string>
 

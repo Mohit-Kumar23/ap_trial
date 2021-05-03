@@ -17,17 +17,21 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.Telephony;
 import android.util.Log;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -41,6 +45,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.thelumiereguy.neumorphicview.views.NeumorphicCardView;
 
 import java.io.IOException;
 import java.util.List;
@@ -82,10 +87,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerOpened(@NonNull View drawerView) {
+                frameLayout.setTranslationZ(-6);
+                coordinatorLayout.setTranslationZ(-5);
             }
 
             @Override
             public void onDrawerClosed(@NonNull View drawerView) {
+                frameLayout.setTranslationZ(0);
+                coordinatorLayout.setTranslationZ(0);
             }
 
             @Override
@@ -105,27 +114,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment(pincode)).commit();
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment temp = null;
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        temp = new homeFragment(pincode);
-                        break;
-                    case R.id.schedule:
-                        temp = new scheduledFragment();
-                        break;
-                    case R.id.emergency:
-                        temp = new emergencyFragment();
-                        break;
-                    case R.id.profile:
-                        temp = new profileFragment();
-                        break;
-                }
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, temp).commit();
-                return true;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            Fragment temp = null;
+            switch (item.getItemId()) {
+                case R.id.home:
+                    temp = new homeFragment(pincode);
+                    break;
+                case R.id.schedule:
+                    temp = new scheduledFragment();
+                    break;
+                case R.id.emergency:
+                    temp = new emergencyFragment();
+                    break;
+                case R.id.profile:
+                    temp = new profileFragment();
+                    break;
             }
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, temp).commit();
+            return true;
         });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -187,5 +193,24 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
     }
 
+<<<<<<< HEAD
+    public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun) {
+        Intent intent = new Intent(this, DoctorInfo.class);
+        Bundle b = new Bundle();
+        b.putString("address",address);
+        b.putString("contact_no",contact_no);
+        b.putString("hname",hname);
+        b.putString("mf",mf);
+        b.putString("name",name);
+        b.putString("purl",purl);
+        b.putString("rating",rating);
+        b.putString("sat",sat);
+        b.putString("specialist",specialist);
+        b.putString("sun",sun);
+        intent.putExtras(b);
+        this.startActivity(intent);
+    }
+=======
 
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 }
