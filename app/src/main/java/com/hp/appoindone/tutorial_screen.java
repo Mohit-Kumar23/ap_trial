@@ -29,7 +29,7 @@ public class tutorial_screen extends AppCompatActivity {
         login.setOnClickListener(view -> {
             Intent intent = new Intent(tutorial_screen.this,log_in.class);
             startActivity(intent);
-            finish();;
+            finish();
         });
         signup.setOnClickListener(view -> {
             Intent intent = new Intent(tutorial_screen.this,sign_up.class);

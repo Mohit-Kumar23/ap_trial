@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -329,19 +329,19 @@
         app:layout_constraintTop_toTopOf="@+id/hguide_l_7"
         />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/tv_l_fpwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:linksClickable="true"
-        android:paddingStart="16dp"
+        android:paddingStart="@dimen/text"
         android:text="Forgot Your Password"
         android:textColor="#303030"
         android:textSize="@dimen/extra"
         android:paddingTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
-        app:layout_constraintTop_toTopOf="@+id/hguide_l_5" />-->
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_5" />
 
     <ImageView
         android:id="@+id/iv_l_bar"
@@ -389,7 +389,6 @@
         app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
         app:layout_constraintTop_toTopOf="@+id/hguide_l_10" />
-
 
 
     <TextView
@@ -440,13 +439,12 @@
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textSize="20sp"
+        android:textSize="@dimen/text"
         android:text="Continue with Facebook"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:layout_gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/hguide_l_13"
         app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
         app:layout_constraintTop_toTopOf="@+id/hguide_l_12" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
