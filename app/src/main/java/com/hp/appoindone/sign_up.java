@@ -64,7 +64,7 @@ public class sign_up extends AppCompatActivity {
     public void go()
     {
         if(!validateEmail() | !validatePassword() | !validatename() | !validatephone() | !validatepwdsame()){
-            return;
+            Log.i("signUP","return from here");
         }
         else {
             String Phone_No = "+91"+phone_no;

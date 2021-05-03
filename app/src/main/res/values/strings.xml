@@ -28,4 +28,6 @@
         <item><font color="#303030">AB -ve</font></item>
     </string-array>
 
+    <string name="hello"><b>Hello</b></string>
+
 </resources>
