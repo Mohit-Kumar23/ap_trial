@@ -25,6 +25,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApi;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -56,24 +58,24 @@ public class log_in extends AppCompatActivity {
     private CallbackManager callbackManager;
     GoogleSignInClient mGoogleSignInClient;
     public static final int RC_SIGN_IN=0;
+    int signIn_flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
+        signIn_flag=0;
         mAuth = FirebaseAuth.getInstance();
         initviews();
         
-    FacebookSdk.sdkInitialize(getApplicationContext());
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
 
 
         login.setOnClickListener(view -> {
             convertviews();
             loginUserAccount(email,password);                                 //Temporary Changes are made here
-            startActivity(new Intent(log_in.this,MainActivity.class));
-            finish();
+
         });
 
         callbackManager = CallbackManager.Factory.create();
@@ -115,6 +117,8 @@ public class log_in extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.i("gsi","Before SignIn called");
+                if(mGoogleSignInClient!=null)
+                    mGoogleSignInClient.signOut();
                 signIn();
                 Log.i("gsi","Sing in Called");
             }
@@ -144,6 +148,7 @@ public class log_in extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Intent intent = new Intent(log_in.this,MainActivity.class);
                         startActivity(intent);
+
                     } else {
                         Toast.makeText(log_in.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
@@ -155,8 +160,8 @@ public class log_in extends AppCompatActivity {
         if(currentUser==null)
             Toast.makeText(this,"No User Logged In",Toast.LENGTH_LONG).show();
         else
-            //startActivity(new Intent(log_in.this,MainActivity.class));
-            Toast.makeText(this,mAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
+            startActivity(new Intent(log_in.this,MainActivity.class));
+
     }
 
 
@@ -209,6 +214,7 @@ public class log_in extends AppCompatActivity {
     public void signIn()
     {
         Log.i("gsi","with in signIn");
+
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
         Log.i("gsi","after intent");
@@ -224,6 +230,7 @@ public class log_in extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            signIn_flag=1;
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

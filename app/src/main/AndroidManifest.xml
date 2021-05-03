@@ -17,6 +17,12 @@
         android:roundIcon="@mipmap/appoindone_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+=======
+        <activity android:name=".confirmAppoint"/>
+
+
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         <activity android:name=".DoctorInfo" />
         <activity
             android:name=".Search"
@@ -24,20 +30,32 @@
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".otp_screen" />
         <activity android:name=".sign_up" />
+<<<<<<< HEAD
         <activity android:name=".tutorial_screen">
 
         </activity>
         <activity android:name=".log_in" />
         <activity android:name=".userinfo" />
         <activity android:name=".MainActivity" >
+=======
+        <activity android:name=".tutorial_screen" />
+        <activity android:name=".log_in"/>
+
+        <activity android:name=".userinfo" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".splash_screen" >
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+<<<<<<< HEAD
         </activity>
         <activity android:name=".splash_screen">
 
+=======
+>>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         </activity>
 
         <meta-data

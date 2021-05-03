@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    tools:context=".confirmAppoint">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hguide_ca_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/gradient"
+        android:elevation="12dp"
+        app:layout_constraintBottom_toTopOf="@id/hguide_ca_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_btn_di_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:paddingLeft="@dimen/extra"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:src="@drawable/leftarrow"
+        android:translationZ="13dp"
+        app:layout_constraintBottom_toTopOf="@id/hguide_ca_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="@dimen/extra" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginEnd="@dimen/extra">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="APPOINTMENT BOOKED"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_ca_patientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text"
+                            android:layout_marginTop="35dp"
+                            android:text="Patient Name : Mr. Mohit Kumar"
+                            android:textSize="@dimen/text" />
+
+                        <TextView
+                            android:id="@+id/tv_ca_appointmentID"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text"
+                            android:layout_marginTop="@dimen/extra"
+                            android:text="Appointment ID : M/2523/210502"
+                            android:textSize="@dimen/text" />
+
+                        <TextView
+                            android:id="@+id/tv_ca_patientAge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text"
+                            android:layout_marginTop="@dimen/extra"
+                            android:text="Age : 20 Yrs"
+                            android:textSize="@dimen/text" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
+                            android:id="@+id/neuCV"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="2dp"
+                            app:enable_preview="true">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView"
+                                android:layout_width="130dp"
+                                android:layout_height="130dp"
+                                android:layout_gravity="center"
+                                android:elevation="12dp"
+                                app:cardBackgroundColor="#303030"
+                                app:cardCornerRadius="1000dp"
+                                app:layout_cardRadius="500"
+                                app:layout_enableHighlight="true"
+                                app:layout_enableShadow="true"
+                                app:layout_highlightColor="#FFFFFF"
+                                app:layout_highlightDx="-2dp"
+                                app:layout_highlightDy="-2dp"
+                                app:layout_highlightRadius="2dp"
+                                app:layout_neu_backgroundColor="#EEEEEE"
+                                app:layout_shadowColor="#40000000"
+                                app:layout_shadowDx="2dp"
+                                app:layout_shadowDy="2dp"
+                                app:layout_shadowRadius="2dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="128dp"
+                                    android:layout_height="128dp"
+                                    android:layout_gravity="center"
+                                    app:cardBackgroundColor="#EEEEEE"
+                                    app:cardCornerRadius="1000dp">
+
+                                    <ImageView
+                                        android:id="@+id/user_photo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/photo" />
+                                </androidx.cardview.widget.CardView>
+                            </androidx.cardview.widget.CardView>
+                        </com.thelumiereguy.neumorphicview.views.NeumorphicCardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_ca_emailId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Email ID : mohit123@gmail.com"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_patient_ContantN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Patient Contact No. : 9574482523"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_consultingDr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Consulting Doctor : Dr. Prakesh Bhagwani"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_specialist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Specialist : Neurologist"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Hospital Name : Station Medicare Centre"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_hospitalAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Address : SMC,Nr. AFS School, AIR FORCE STATION Naliya,Kutch,Guj"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_hospitalNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Hospital Contact No. : 8556421031"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_appointDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Appointment Date : 02/05/2021"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_appointTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Appointment Time : 09:00"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_bookingAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Booking Amount : Rs. 150"
+                    android:textSize="@dimen/text" />
+
+                <TextView
+                    android:id="@+id/tv_ca_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Description : Having Fever from last 4 Days and feeling dry cough in the throat."
+                    android:textSize="@dimen/text" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vguideInside_ca_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hguideInside_ca_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.94"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_ca_pdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/hguideInside_ca_1"
+            app:layout_constraintEnd_toStartOf="@+id/vguideInside_ca_1"
+            app:borderWidth="7dp"
+            app:backgroundTint="#FFFFFF"
+            android:src="@drawable/home"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
