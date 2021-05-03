@@ -193,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
     }
 
-<<<<<<< HEAD
     public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun) {
         Intent intent = new Intent(this, DoctorInfo.class);
         Bundle b = new Bundle();
@@ -210,7 +209,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(b);
         this.startActivity(intent);
     }
-=======
-
->>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 }

@@ -60,7 +60,7 @@
             app:lottie_speed="0.5" />
 
 
-        <!--<TextView
+        <TextView
             android:id="@+id/slide_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -71,12 +71,12 @@
             android:gravity="center"
             android:text="NAVIGATION TO DESTINATION"
             android:textColor="#303030"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline22"
-            app:layout_constraintVertical_bias="0.30" />-->
+            app:layout_constraintVertical_bias="0.30" />
 
 
     </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>

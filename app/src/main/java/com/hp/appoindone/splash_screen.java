@@ -20,25 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-<<<<<<< HEAD
 import com.google.firebase.auth.FirebaseAuth;
-=======
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-
->>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 
 public class splash_screen extends AppCompatActivity {
     String pincode;
@@ -57,7 +39,7 @@ public class splash_screen extends AppCompatActivity {
             Handler handler = new Handler();
             handler. postDelayed(new Runnable() {
                 public void run() {
-                     textView.setText("WE ARE TAKING YOU TO LOCATION SETTING PLEASE ENABLE IT");
+                    textView.setText("WE ARE TAKING YOU TO LOCATION SETTING PLEASE ENABLE IT");
                 }
             }, 2000);
             Handler handler1 = new Handler();
@@ -140,30 +122,15 @@ public class splash_screen extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
     @Override
     protected void onPause() {
         super.onPause();
         if(flag==1){
             msg = "pauseForLocation";
-=======
-    public void nxtscreen(){
-        if(FirebaseAuth.getInstance().getCurrentUser()==null)
-        {
-            Intent intent = new Intent(splash_screen.this, tutorial_screen.class);
-            //intent.putExtra("pincodepass", pincode);
-            startActivity(intent);
-        }
-        else
-        {
-            Intent intent = new Intent(splash_screen.this,MainActivity.class);
-            //intent.putExtra("pincodepass",pincode);
-            startActivity(intent);
->>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
         }
     }
 
-   /* @Override
+    @Override
     protected void onResume() {
         super.onResume();
         if(flag==1 && msg == ("pauseForLocation"))
@@ -175,7 +142,6 @@ public class splash_screen extends AppCompatActivity {
                 msg = "";
                 islocationallowed();
             }
-<<<<<<< HEAD
             else{
                 Handler handler = new Handler();
                 handler. postDelayed(new Runnable() {
@@ -193,8 +159,4 @@ public class splash_screen extends AppCompatActivity {
             }
         }
     }
-=======
-        }, 5000);
-    }*/
->>>>>>> 10084c27bc6ba3f9dfc10a1215b404e0580debab
 }
