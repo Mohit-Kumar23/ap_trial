@@ -52,15 +52,12 @@ public class profileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         frameLayout = view.findViewById(R.id.profile_frame_layout);
         bottomNavigationView = view.findViewById(R.id.bottomNavigationView2);
-        getFragmentManager().beginTransaction().replace(R.id.profile_frame_layout,new general_details_fragment()).commit();
+        getFragmentManager().beginTransaction().replace(R.id.profile_frame_layout,new personal_details_fragment()).commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment temp = null;
                 switch (item.getItemId()) {
-                    case R.id.general_details:
-                        temp = new general_details_fragment();
-                        break;
                     case R.id.personal_details:
                         temp = new personal_details_fragment();
                         break;

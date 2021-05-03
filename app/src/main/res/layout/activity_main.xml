@@ -77,9 +77,11 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/hamburger"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:elevation="12dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
             app:layout_constraintBottom_toTopOf="@+id/guideline37"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintStart_toStartOf="parent"

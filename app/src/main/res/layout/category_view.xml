@@ -66,10 +66,12 @@
                 app:cardCornerRadius="1000dp">
 
                 <ImageView
-                    android:id="@+id/specialist_photo"
+                    android:id="@+id/user_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:scaleY="0.8"
+                    android:scaleX="0.8"/>
             </androidx.cardview.widget.CardView>
         </com.thelumiereguy.neumorphicview.views.NeumorphicCardView>
 

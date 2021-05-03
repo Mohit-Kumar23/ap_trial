@@ -23,7 +23,6 @@ public class category_adapter extends FirebaseRecyclerAdapter<categoryClass,cate
 
     @Override
     protected void onBindViewHolder(@NonNull viewHolder holder, int position, @NonNull categoryClass model) {
-        holder.neumorphicCardView.setAnimation(AnimationUtils.loadAnimation(holder.neumorphicCardView.getContext(),R.anim.photo_load));
         holder.specialistTv.setAnimation(AnimationUtils.loadAnimation(holder.specialistTv.getContext(),R.anim.photo_load));
         holder.specialistImg.setAnimation(AnimationUtils.loadAnimation(holder.specialistImg.getContext(),R.anim.photo_load));
         holder.specialistTv.setText(model.getName());
@@ -44,7 +43,7 @@ public class category_adapter extends FirebaseRecyclerAdapter<categoryClass,cate
         public viewHolder(@NonNull View itemView){
             super(itemView);
             neumorphicCardView = (NeumorphicCardView)itemView.findViewById(R.id.neumorphicCardView);
-            specialistImg = (ImageView)itemView.findViewById(R.id.specialist_photo);
+            specialistImg = (ImageView)itemView.findViewById(R.id.user_photo);
             specialistTv = (TextView)itemView.findViewById(R.id.tv_cv_specialist);
         }
     }

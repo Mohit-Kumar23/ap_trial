@@ -61,21 +61,41 @@
                 android:orientation="vertical">
 
                 <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
-                    android:layout_width="170dp"
+                    android:id="@+id/neumorphicCardView"
+                    android:transitionName="ftoa"
+                    android:layout_width="match_parent"
                     android:layout_height="170dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/extra"
-                    app:enable_preview="true">
+                    android:layout_gravity="end"
+                    app:enable_preview="true"
+                    app:cardBackgroundColor="#303030"
+                    app:cardCornerRadius="1000dp"
+                    app:layout_cardRadius="500"
+                    app:layout_enableHighlight="true"
+                    app:layout_enableShadow="true"
+                    app:layout_highlightColor="#FFFFFF"
+                    app:layout_highlightDx="-2dp"
+                    app:layout_highlightDy="-2dp"
+                    app:layout_highlightRadius="2dp"
+                    app:layout_neu_backgroundColor="#EEEEEE"
+                    app:layout_shadowColor="#40000000"
+                    app:layout_shadowDx="2dp"
+                    app:layout_shadowDy="2dp"
+                    app:layout_shadowRadius="2dp">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardView"
+                        android:layout_gravity="center"
+                        android:id="@id/cardView2"
+                        android:transitionName="ftoa1"
                         android:layout_width="150dp"
                         android:layout_height="150dp"
-                        android:layout_gravity="center"
                         android:elevation="12dp"
                         app:cardBackgroundColor="#303030"
                         app:cardCornerRadius="1000dp"
                         app:layout_cardRadius="500"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_enableHighlight="true"
                         app:layout_enableShadow="true"
                         app:layout_highlightColor="#FFFFFF"
@@ -100,7 +120,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/photo" />
+                                android:src="@drawable/photo"
+                                android:transitionName="ftoa2" />
                         </androidx.cardview.widget.CardView>
                     </androidx.cardview.widget.CardView>
                 </com.thelumiereguy.neumorphicview.views.NeumorphicCardView>
@@ -359,6 +380,7 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:text="Select Date"
+                        android:textColor="#FFFFFF"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -391,6 +413,7 @@
                         android:background="@drawable/button_gradient"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:textColor="#FFFFFF"
                         android:text="Select Time"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -447,13 +470,15 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <Button
+                    android:id="@+id/proceed"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="@dimen/extra"
                     android:layout_marginTop="@dimen/extra"
                     android:layout_marginRight="@dimen/extra"
                     android:layout_marginBottom="@dimen/text"
+                    android:textColor="#FFFFFF"
                     android:background="@drawable/button_gradient"
                     android:text="Proceed"
                     android:textSize="25sp" />
