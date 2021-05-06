@@ -110,6 +110,25 @@
                             android:text="Age : 20 Yrs"
                             android:textSize="@dimen/text" />
 
+                        <TextView
+                            android:id="@+id/tv_ca_gender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text"
+                            android:layout_marginTop="@dimen/extra"
+                            android:text="Gender : Male"
+                            android:textSize="@dimen/text"/>
+
+                        <TextView
+                            android:id="@+id/tv_ca_token"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/text"
+                            android:layout_marginTop="@dimen/extra"
+                            android:text="Token No. : "
+                            android:textSize="@dimen/text"/>
+
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -245,6 +264,16 @@
                     android:layout_marginStart="@dimen/text"
                     android:layout_marginTop="@dimen/extra"
                     android:text="Appointment Time : 09:00"
+                    android:textSize="@dimen/text" />
+
+
+                <TextView
+                    android:id="@+id/tv_va_paymentID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/text"
+                    android:layout_marginTop="@dimen/extra"
+                    android:text="Transaction ID : 9845_fabc_456132"
                     android:textSize="@dimen/text" />
 
                 <TextView

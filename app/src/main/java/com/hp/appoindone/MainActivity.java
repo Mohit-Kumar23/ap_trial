@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         //patient_photo = findViewById(R.id.patient_photo);
     }
 
-    public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun) {
+    public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun,String mon_fri,String sat_sun,String fee) {
         Intent intent = new Intent(this, DoctorInfo.class);
         Bundle b = new Bundle();
         b.putString("address",address);
@@ -255,6 +255,9 @@ public class MainActivity extends AppCompatActivity {
         b.putString("sat",sat);
         b.putString("specialist",specialist);
         b.putString("sun",sun);
+        b.putString("mon_fri",mon_fri);
+        b.putString("sat_sun",sat_sun);
+        b.putString("fee",fee);
         intent.putExtras(b);
         this.startActivity(intent);
     }

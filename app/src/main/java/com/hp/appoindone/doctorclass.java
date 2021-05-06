@@ -1,12 +1,25 @@
 package com.hp.appoindone;
 
 public class doctorclass {
-    String address,contact_no,hname,mf,name,purl,rating,sat,specialist,sun;
+    String address;
+    String contact_no;
+    String hname;
+    String mf;
+    String name;
+    String purl;
+    String rating;
+    String sat;
+    String specialist;
+    String sun;
+    String mon_fri;
+    String sat_sun;
+    String fee;
+
     doctorclass(){
 
     }
 
-    public doctorclass(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun) {
+    public doctorclass(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun,String mon_fri,String sat_sun,String fee) {
         this.address = address;
         this.contact_no = contact_no;
         this.hname = hname;
@@ -17,6 +30,9 @@ public class doctorclass {
         this.sat = sat;
         this.specialist = specialist;
         this.sun = sun;
+        this.mon_fri=mon_fri;
+        this.sat_sun=sat_sun;
+        this.fee=fee;
     }
 
     public String getAddress() {
@@ -98,4 +114,29 @@ public class doctorclass {
     public void setSun(String sun) {
         this.sun = sun;
     }
+
+    public String getMon_fri() {
+        return mon_fri;
+    }
+
+    public void setMon_fri(String mon_fri) {
+        this.mon_fri = mon_fri;
+    }
+
+    public String getSat_sun() {
+        return sat_sun;
+    }
+
+    public void setSat_sun(String sat_sun) {
+        this.sat_sun = sat_sun;
+    }
+
+    public String getFee() {
+        return fee;
+    }
+
+    public void setFee(String fee) {
+        this.fee = fee;
+    }
+
 }

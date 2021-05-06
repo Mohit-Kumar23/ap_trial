@@ -60,4 +60,8 @@ dependencies {
     implementation 'com.github.marcinmoskala:ArcSeekBar:0.31'
     implementation 'com.razorpay:checkout:1.6.6'
 
+    implementation 'com.itextpdf:itextg:5.5.10'
+    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.3'
+
+
 }
