@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.07"
+        />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -765,10 +766,13 @@
                     app:layout_shadowRadius="3dp">
 
                     <Button
-                        android:layout_width="0dp"
+                        android:id="@+id/pb_ui_btn"
+                        android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:background="@drawable/button_gradient"
-                        android:text="Submit"
+                        android:text="Proceed and Pay"
+                        android:paddingStart="@dimen/extra"
+                        android:paddingEnd="@dimen/extra"
                         android:textSize="@dimen/text"
                         app:layout_cardRadius="80"
                         app:layout_constraintStart_toStartOf="@id/vguide_s_2"
