@@ -59,8 +59,7 @@ public class confirmAppoint extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_appoint);
 
         initView();
-//        getIntentValues();
-//        setValues();
+        setValues();
 
         tokenNo = random.nextInt(200);
         tokenTxt.setText("Token No. : "+String.valueOf(tokenNo));
@@ -105,6 +104,28 @@ public class confirmAppoint extends AppCompatActivity {
         paymentIdTxt = (TextView)findViewById(R.id.tv_va_paymentID);
         amtTxt = (TextView)findViewById(R.id.tv_ca_bookingAmt);
         descTxt = (TextView)findViewById(R.id.tv_ca_desc);
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void setValues()
+    {
+        nameTxt.setText("Patient Name : "+getIntent().getExtras().getString("userName"));
+        ageTxt.setText("Age : "+getIntent().getExtras().getString("userAge"));
+        genderTxt.setText("Gender : "+getIntent().getExtras().getString("userGender"));
+        emailTxt.setText("Email ID : "+getIntent().getExtras().getString("userEmail"));
+        contactTxt.setText("Patient Contact No. : "+getIntent().getExtras().getString("userPhone"));
+        appointIdTxt.setText("Appointment ID : "+getIntent().getExtras().getString("userEmail").substring(0,getIntent().getExtras().getString("userEmail").indexOf("@"))+"/"+getIntent().getExtras().getString("appointD"));
+        doctorNameTxt.setText("Consulting Doctor : "+getIntent().getExtras().getString("name"));
+        specialistTxt.setText("Specialist : "+getIntent().getExtras().getString("specialist"));
+        hospitalTxt.setText("Hospital Name : "+getIntent().getExtras().getString("hname"));
+        addressTxt.setText("Address : "+getIntent().getExtras().getString("address"));
+        hospitalContactTxt.setText("Hospital Contact No. : "+getIntent().getExtras().getString("contact_no"));
+        appointDateTxt.setText("Appointment Date : "+getIntent().getExtras().getString("appointD"));
+        appointTimeTxt.setText("Appointment Time : "+getIntent().getExtras().getString("appointT"));
+        amtTxt.setText("Booking Amount : "+getIntent().getExtras().getString("fee"));
+        paymentIdTxt.setText("Transaction ID : "+getIntent().getExtras().getString("paymentId"));
+        descTxt.setText("Description : "+getIntent().getExtras().getString("desc"));
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

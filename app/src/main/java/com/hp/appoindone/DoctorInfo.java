@@ -50,9 +50,10 @@ public class DoctorInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_info);
         initViews();
+        Bundle b = getIntent().getExtras();
         doctorObj = new doctorclass();
 
-/*        address = getIntent().getExtras().getString("address");
+        address = getIntent().getExtras().getString("address");
         contact_no = getIntent().getExtras().getString("contact_no");
         hname = getIntent().getExtras().getString("hname");
         mf = getIntent().getExtras().getString("mf");
@@ -71,15 +72,13 @@ public class DoctorInfo extends AppCompatActivity {
         vcontact_no.setText(contact_no);
         vhname.setText(hname);
         vmf.setText(mf);
-        //vname.setText("Name : "+name);
+        vname.setText("Name : "+name);
         ratingBar.setRating(Float.parseFloat(rating));
         vsat.setText(sat);
         vspecialist.setText(specialist);
-        vsun.setText(sun);*/
+        vsun.setText(sun);
 
         seekBar.setEnabled(false);
-       /* seekBar.setProgress(80);
-        seekBar.setProgressColor(getResources().getColor(R.color.green,getTheme()));*/
         mon_fri="100";
         sat_sun="23";
 
@@ -97,7 +96,11 @@ public class DoctorInfo extends AppCompatActivity {
             }
             else{
                 if(proceedBoolean){
-                    startActivity(new Intent(DoctorInfo.this,confirmAppoint.class));
+                    Intent intent = new Intent(DoctorInfo.this,userinfo.class);
+                    b.putString("appointD",tv_date.getText().toString().substring(tv_date.getText().toString().indexOf(":")+2));
+                    b.putString("appointT",tv_time.getText().toString().substring(tv_time.getText().toString().indexOf(":")+2));
+                    intent.putExtras(b);
+                    startActivity(intent);
                 }
                 else {
                         Toast.makeText(this,"Appointment Not Available at Selected Slot",Toast.LENGTH_LONG).show();
@@ -123,7 +126,7 @@ public class DoctorInfo extends AppCompatActivity {
         vcontact_no=(TextView)findViewById(R.id.tv_di_contactTxt);
         vhname=(TextView)findViewById(R.id.tv_di_hospitalTxt);
         vmf=(TextView)findViewById(R.id.tv_mon_fri_time);
-        //vname=(TextView)findViewById(R.id.tv_di_nameTxt);
+        vname=(TextView)findViewById(R.id.tv_di_nameTxt);
         vsat=(TextView)findViewById(R.id.textView9);
         vspecialist=(TextView)findViewById(R.id.tv_di_specialistTxt);
         vsun=(TextView)findViewById(R.id.tv_sun_time);

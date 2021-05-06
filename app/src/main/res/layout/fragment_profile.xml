@@ -2,14 +2,23 @@
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_motionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     app:layoutDescription="@xml/fragment_profile_scene"
     tools:context=".profileFragment">
 
+    <FrameLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#EEEEEE"
+        android:translationZ="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
     <Button
-        android:translationZ="@dimen/text"
         android:id="@+id/button2"
         android:layout_width="55dp"
         android:layout_height="45dp"
@@ -17,12 +26,13 @@
         android:layout_marginTop="@dimen/extra"
         android:background="@drawable/toggle_button"
         android:drawableLeft="@drawable/ic_baseline_edit_24"
-        android:paddingStart="@dimen/extra"
-        android:text="Save"
         android:drawablePadding="@dimen/extra"
+        android:paddingStart="@dimen/extra"
         android:paddingEnd="@dimen/extra"
+        android:text="Save"
         android:textColor="#00303030"
         android:textSize="@dimen/extra"
+        android:translationZ="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,7 +114,6 @@
         android:layout_height="3dp"
         android:layout_margin="@dimen/pb"
         android:background="@android:drawable/divider_horizontal_bright"
-        android:elevation="16dp"
         app:layout_constraintTop_toBottomOf="@id/tv_fp_user_id" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -112,7 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/transparent"
-        android:elevation="16dp"
+        android:elevation="5dp"
         android:theme="@style/bottomnavigationbutton"
         app:itemHorizontalTranslationEnabled="true"
         app:itemIconSize="25dp"
@@ -127,7 +136,6 @@
         android:layout_height="3dp"
         android:layout_margin="@dimen/pb"
         android:background="@android:drawable/divider_horizontal_bright"
-        android:elevation="16dp"
         app:layout_constraintTop_toBottomOf="@id/bottomNavigationView2" />
 
     <FrameLayout

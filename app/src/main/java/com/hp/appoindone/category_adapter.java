@@ -27,6 +27,12 @@ public class category_adapter extends FirebaseRecyclerAdapter<categoryClass,cate
         holder.specialistImg.setAnimation(AnimationUtils.loadAnimation(holder.specialistImg.getContext(),R.anim.photo_load));
         holder.specialistTv.setText(model.getName());
         Glide.with(holder.specialistImg.getContext()).load(model.getUrl()).into(holder.specialistImg);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) v.getContext()).onCategoryClicked(model.Name);
+            }
+        });
     }
 
     @NonNull

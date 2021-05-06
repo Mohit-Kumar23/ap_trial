@@ -105,11 +105,13 @@ public class splash_screen extends AppCompatActivity {
         {
             Intent intent1 = new Intent(splash_screen.this,tutorial_screen.class);
             startActivity(intent1);
+            finish();
         }
         else
         {
             Intent intent1 = new Intent(splash_screen.this,MainActivity.class);
             startActivity(intent1);
+            finish();
         }
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MotionScene 
+<MotionScene
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
@@ -7,8 +7,12 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="100">
-       <KeyFrameSet>
-       </KeyFrameSet>
+        <KeyFrameSet>
+            <KeyAttribute
+                motion:motionTarget="@+id/button2"
+                motion:framePosition="40"
+                android:translationZ="0dp" />
+        </KeyFrameSet>
         <OnClick motion:targetId="@+id/button2" />
     </Transition>
 
@@ -42,5 +46,12 @@
                 motion:customColorValue="#303030" />
             />
         </Constraint>
+        <Constraint
+            android:id="@+id/edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:translationZ="10dp" />
     </ConstraintSet>
 </MotionScene>
