@@ -4,11 +4,11 @@
     package="com.hp.appoindone">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION "/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION " />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -17,30 +17,28 @@
         android:roundIcon="@mipmap/appoindone_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".confirmAppoint"/>
-
+        <activity android:name=".category"></activity>
+        <activity android:name=".confirmAppoint" />
         <activity android:name=".DoctorInfo" />
-        <activity android:name=".Search"
+        <activity
+            android:name=".Search"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Transparent" />
         <activity android:name=".otp_screen" />
-        <activity android:name=".sign_up" />
-        <activity android:name=".tutorial_screen">
-
-        </activity>
+        <activity android:name=".sign_up"></activity>
+        <activity android:name=".tutorial_screen"></activity>
         <activity android:name=".log_in" />
         <activity android:name=".userinfo" />
-        <activity android:name=".MainActivity"/>
-
-        <activity android:name=".splash_screen" >
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
+        <activity android:name=".splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <meta-data
             android:name="preloaded_fonts"
@@ -65,9 +63,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <service android:name=".LocationServices"
+
+        <service
+            android:name=".LocationServices"
             android:enabled="true"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

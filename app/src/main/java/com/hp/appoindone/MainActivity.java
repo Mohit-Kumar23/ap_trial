@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,14 +38,22 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.bumptech.glide.Glide;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.thelumiereguy.neumorphicview.views.NeumorphicCardView;
 
 import java.io.IOException;
@@ -54,30 +63,61 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    FloatingActionButton fab;
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     LottieAnimationView toggle;
     FrameLayout frameLayout;
     NavigationView navigationView;
+    ImageView patient_photo;
+    TextView textView;
     CoordinatorLayout coordinatorLayout;
     String pincode;
     log_in lg_obj;
     splash_screen spls_obj;
+    String emailName,email,purl,first_name,last_name;
 
-    @SuppressLint("RestrictedApi")
+    @SuppressLint({"RestrictedApi", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initviews();
+        checkInternet();
+        email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        emailName = email.substring(0,email.indexOf('@'));
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");
+        Query user = databaseReference.orderByChild("email").equalTo(email);
+        user.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    purl = snapshot.child(emailName).child("purl").getValue(String.class);
+                    first_name = snapshot.child(emailName).child("first_name").getValue(String.class);
+                    last_name = snapshot.child(emailName).child("last_name").getValue(String.class);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        /*if(purl==null){
+            patient_photo.setImageResource(R.drawable.profile_icon);
+        }
+        else{
+            Glide.with(this).load(purl).into(patient_photo);
+        }*/
+//        textView.setText(first_name+" "+last_name);
         lg_obj = new log_in();
         spls_obj = new splash_screen();
         Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
-        initviews();
-        checkInternet();
-        pincode = spls_obj.pincode; //getIntent().getStringExtra("pincodepass");
+        pincode = spls_obj.pincode;
         Log.i("pincode_mainactivity",String.valueOf(pincode));
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        patient_photo.setOnClickListener(v -> getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new profileFragment()).commit());
         bottomNavigationView.getMenu().findItem(R.id.none).setEnabled(false);
         drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
@@ -113,6 +153,13 @@ public class MainActivity extends AppCompatActivity {
                 coordinatorLayout.setTranslationZ(0);
             }
         });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Search.class);
+                startActivity(intent);
+            }
+        });
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new homeFragment(pincode)).commit();
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment temp = null;
@@ -127,13 +174,12 @@ public class MainActivity extends AppCompatActivity {
                     temp = new emergencyFragment();
                     break;
                 case R.id.profile:
-                    temp = new profileFragment();
+                    temp = new profileFragment(null);
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, temp).commit();
             return true;
         });
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -191,6 +237,9 @@ public class MainActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.frame_layout);
         coordinatorLayout = findViewById(R.id.bn_am_cl);
         navigationView = findViewById(R.id.navigation_view);
+        fab = findViewById(R.id.fab);
+        //textView = findViewById(R.id.user_name);
+        //patient_photo = findViewById(R.id.patient_photo);
     }
 
     public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun) {
@@ -208,5 +257,20 @@ public class MainActivity extends AppCompatActivity {
         b.putString("sun",sun);
         intent.putExtras(b);
         this.startActivity(intent);
+    }
+
+    public void onDialogClick() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new profileFragment("open")).commit();
+    }
+
+    public void onCategoryClicked(String name) {
+        Intent intent = new Intent(this,category.class);
+        intent.putExtra("category",name);
+        startActivity(intent);
+    }
+
+    public void onClickSave() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new profileFragment(null)).commit();
+
     }
 }

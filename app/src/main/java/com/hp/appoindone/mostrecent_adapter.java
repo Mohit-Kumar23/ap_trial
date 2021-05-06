@@ -46,7 +46,6 @@ public class mostrecent_adapter extends FirebaseRecyclerAdapter<doctorclass,most
         holder.specialist.setText(model.getSpecialist());
         holder.area.setText(add.get(add.size() - 2)+" , "+add.get(add.size() - 1));
         holder.ratingbar.setRating(Float.parseFloat(model.getRating()));
-        holder.neumorphicCardView.setTransitionName("ftoa"+position);
         holder.ncvmain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
