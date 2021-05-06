@@ -37,6 +37,14 @@ public class nearby_adapter extends FirebaseRecyclerAdapter<doctorclass,nearby_a
         holder.specialist.setText(model.getSpecialist());
         holder.area.setText(add.get(add.size() - 2)+" , "+add.get(add.size() - 1));
         holder.ratingbar.setRating(Float.parseFloat(model.getRating()));
+        holder.ncvmain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) v.getContext()).onClickCalled(model.getAddress(),model.getContact_no(),model.getHname(),model.getMf(),
+                        model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun(),model.getMon_fri(),
+                        model.getSat_sun(),model.getFee());
+            }
+        });
     }
 
     @NonNull
@@ -50,7 +58,7 @@ public class nearby_adapter extends FirebaseRecyclerAdapter<doctorclass,nearby_a
         ImageView user_photo;
         TextView name,specialist,area;
         RatingBar ratingbar;
-        NeumorphicCardView neumorphicCardView;
+        NeumorphicCardView neumorphicCardView,ncvmain;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
             user_photo = (ImageView)itemView.findViewById(R.id.user_photo);
@@ -59,6 +67,7 @@ public class nearby_adapter extends FirebaseRecyclerAdapter<doctorclass,nearby_a
             area = (TextView)itemView.findViewById(R.id.tv_dv_area);
             ratingbar = (RatingBar)itemView.findViewById(R.id.rb_dv_ratingBar);
             neumorphicCardView = (NeumorphicCardView) itemView.findViewById(R.id.neumorphicCardView);
+            ncvmain = (NeumorphicCardView) itemView.findViewById(R.id.ncvmain);
         }
     }
 }

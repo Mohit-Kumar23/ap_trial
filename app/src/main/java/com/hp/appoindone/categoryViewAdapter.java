@@ -38,6 +38,14 @@ public class categoryViewAdapter extends FirebaseRecyclerAdapter<doctorclass,cat
         holder.specialist.setText(model.getSpecialist());
         holder.area.setText(add.get(add.size() - 2)+" , "+add.get(add.size() - 1));
         holder.ratingBar.setRating(Float.parseFloat(model.getRating()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) v.getContext()).onClickCalled(model.getAddress(),model.getContact_no(),model.getHname(),model.getMf(),
+                        model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun(),model.getMon_fri(),
+                        model.getSat_sun(),model.getFee());
+            }
+        });
     }
 
     @NonNull

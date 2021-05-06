@@ -8,7 +8,10 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -17,21 +20,30 @@
         android:roundIcon="@mipmap/appoindone_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".category"></activity>
+
+        <activity android:name=".category"/>
         <activity android:name=".confirmAppoint" />
         <activity android:name=".DoctorInfo" />
-        <activity
-            android:name=".Search"
+        <activity android:name=".Search"
+            android:windowSoftInputMode="adjustPan|adjustResize"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".otp_screen" />
-        <activity android:name=".sign_up"></activity>
-        <activity android:name=".tutorial_screen"></activity>
-        <activity android:name=".log_in" />
-        <activity android:name=".userinfo" />
+
+        <activity android:name=".otp_screen"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
+        <activity android:name=".sign_up"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
+        <activity android:name=".tutorial_screen"/>
+        <activity android:name=".log_in"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
+
+        <activity android:name=".userinfo"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"></activity>
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
+
+
         <activity android:name=".splash_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +52,6 @@
         </activity>
         
 
-        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
