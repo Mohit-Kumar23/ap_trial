@@ -1,53 +1,115 @@
 package com.hp.appoindone;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.animation.Animator;
 import android.content.res.Resources;
+import android.os.Build;
+
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
 
-public class Search extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    ConstraintLayout rootLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+public class Search extends AppCompatActivity {
+    FloatingActionButton fab;
+    private View background;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
         setContentView(R.layout.activity_search);
-        initviews();
+        fab = findViewById(R.id.fab_search);
+        background = findViewById(R.id.rootLayout);
+        fab.setOnClickListener(v -> onBackPressed());
         if (savedInstanceState == null) {
-            rootLayout.setVisibility(View.INVISIBLE);
+            background.setVisibility(View.INVISIBLE);
 
-            ViewTreeObserver viewTreeObserver = rootLayout.getViewTreeObserver();
+            final ViewTreeObserver viewTreeObserver = background.getViewTreeObserver();
+
             if (viewTreeObserver.isAlive()) {
                 viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
                     @Override
                     public void onGlobalLayout() {
                         circularRevealActivity();
-                        rootLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                        background.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     }
+
                 });
             }
-        }
-    }
 
-    public void initviews(){
-        rootLayout = findViewById(R.id.rootLayout);
+        }
+
     }
 
     private void circularRevealActivity() {
+        int cx = background.getWidth()/2;
+        int cy = background.getBottom() - getDips(44);
 
-        int cx = rootLayout.getWidth() / 2;
-        int cy = rootLayout.getBottom();
+        float finalRadius = Math.max(background.getWidth(), background.getHeight());
 
-        float finalRadius = Math.max(rootLayout.getWidth(), rootLayout.getHeight());
-        Animator circularReveal = ViewAnimationUtils.createCircularReveal(rootLayout, cx, cy, 0, finalRadius);
-        circularReveal.setDuration(500);
-        rootLayout.setVisibility(View.VISIBLE);
+        Animator circularReveal = ViewAnimationUtils.createCircularReveal(
+                background,
+                cx,
+                cy,
+                0,
+                finalRadius);
+
+        circularReveal.setDuration(100);
+        background.setVisibility(View.VISIBLE);
         circularReveal.start();
+
+    }
+
+    private int getDips(int dps) {
+        Resources resources = getResources();
+        return (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dps,
+                resources.getDisplayMetrics());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            int cx = background.getWidth()/2;
+            int cy = background.getBottom() - getDips(44);
+
+            float finalRadius = Math.max(background.getWidth(), background.getHeight());
+            Animator circularReveal = ViewAnimationUtils.createCircularReveal(background, cx, cy, finalRadius, 0);
+
+            circularReveal.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+                    background.setVisibility(View.INVISIBLE);
+                    finish();
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
+            circularReveal.setDuration(300);
+            circularReveal.start();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

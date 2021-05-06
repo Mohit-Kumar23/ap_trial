@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -15,6 +16,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,7 +40,13 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,8 +59,7 @@ public class homeFragment extends Fragment{
     mostrecent_adapter mrAdapter;
     nearby_adapter nbAdapter;
     category_adapter catAdapter;
-    String pincode;
-    FusedLocationProviderClient fusedLocationProviderClient;
+    String pincode,email,emailName,gender;
 
     public homeFragment(String pincode) {
         this.pincode = pincode;
@@ -62,25 +69,38 @@ public class homeFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        emailName = email.substring(0,email.indexOf('@'));
         Log.i("pinfb",String.valueOf(pincode));
-        if (pincode==null){
-            requestlocationpermission();
-        }
         FirebaseRecyclerOptions<doctorclass> options =
                 new FirebaseRecyclerOptions.Builder<doctorclass>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("doctor"), doctorclass.class)
                         .build();
         mrAdapter = new mostrecent_adapter(options);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");
+        Query user = databaseReference.orderByChild("email").equalTo(email);
+        user.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    pincode = snapshot.child(emailName).child("pincode").getValue(String.class);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        
         firebaseNearBy();
         categoryList();
-
     }
+
 
     private void firebaseNearBy() {
         FirebaseRecyclerOptions<doctorclass> options1 =
                 new FirebaseRecyclerOptions.Builder<doctorclass>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("doctor").orderByChild("pincode").startAt(pincode).endAt(pincode+"\uf8ff"), doctorclass.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference("doctor").orderByChild("pincode").startAt(pincode).endAt(pincode+"uf8ff"), doctorclass.class)
                         .build();
         nbAdapter = new nearby_adapter(options1);
     }
@@ -111,63 +131,41 @@ public class homeFragment extends Fragment{
         return view;
     }
 
-    private LocationCallback locationCallBack = new LocationCallback() {
-        @Override
-        public void onLocationResult(@NonNull LocationResult locationResult) {
-            Log.i("pin","onlocationresult function");
-            fusedlocationlistener();
-        }
-    };
-
-    @SuppressLint("MissingPermission")
-    private void requestlocationpermission(){
-        Log.i("pin","requsetlocationpermission function");
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(500);
-        locationRequest.setFastestInterval(0);
-        locationRequest.setNumUpdates(1);
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
-        fusedLocationProviderClient.requestLocationUpdates(locationRequest,locationCallBack, Looper.myLooper());
-    }
-
-    @SuppressLint("MissingPermission")
-    public void fusedlocationlistener(){
-        Log.i("pin","fusedlocationlistener function");
-        fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
-            @Override
-            public void onComplete(@NonNull Task<Location> task) {
-                Log.i("pin","oncomplete");
-                Location location = task.getResult();
-                if(location == null){
-                    Log.i("pin","location = null");
-                }
-                else {
-                    Log.i("pin","location ! null");
-                    Log.i("pincode",String.valueOf(location.getLatitude()));
-                    Geocoder geocoder = new Geocoder(getContext(), Locale.ENGLISH);
-                    try {
-                        List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(), 1);
-                        String pincodethis = addresses.get(0).getPostalCode();
-                        Log.i("new pincode",String.valueOf(pincodethis));
-                        if(pincodethis!=null){
-                            pincode = pincodethis;
-                            firebaseNearBy();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-    }
-
     @Override
     public void onStart() {
         super.onStart();
         mrAdapter.startListening();
         nbAdapter.startListening();
         catAdapter.startListening();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");
+        Query user = databaseReference.orderByChild("email").equalTo(email);
+        user.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    gender = snapshot.child(emailName).child("gender").getValue(String.class);
+                    if(gender==null){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setTitle("Required Details");
+                        builder.setMessage("Please fill the required Details");
+                        builder.setIcon(R.mipmap.appoindone_logo);
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                ((MainActivity)getContext()).onDialogClick();
+                            }
+                        });
+                        builder.show();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override

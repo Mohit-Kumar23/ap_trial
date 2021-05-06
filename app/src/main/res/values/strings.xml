@@ -33,7 +33,15 @@
         <item><font color="#303030">Weekly</font></item>
         <item><font color="#303030">Occasionally</font></item>
     </string-array>
+    <string-array name="Gender">
+        <item><font color="#80303030">Gender</font></item>
+        <item><font color="#303030">Male</font></item>
+        <item><font color="#303030">Female</font></item>
+        <item><font color="#303030">Other</font></item>
+    </string-array>
 
     <string name="hello"><b>Hello</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

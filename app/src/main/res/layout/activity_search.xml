@@ -4,14 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#209cff"
+    android:background="#EEEEEE"
     android:id="@+id/rootLayout"
     tools:context=".Search">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Search Option"
-        android:gravity="center"/>
 
+    <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
+        android:id="@+id/neumorphicConstraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="@dimen/extra"
+        android:background="#EEEEEE"
+        android:paddingTop="@dimen/pb"
+        app:enable_preview="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#FFFFFF"
+        app:layout_highlightDx="-3dp"
+        app:layout_highlightDy="-3dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#80000000"
+        app:layout_shadowDx="3dp"
+        app:layout_shadowDy="3dp"
+        app:layout_shadowRadius="3dp"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_search"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="@dimen/extra"
+            android:layout_marginEnd="@dimen/extra"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/white"
+            app:boxStrokeErrorColor="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:errorEnabled="false"
+            app:errorIconDrawable="@drawable/error_icon"
+            app:errorIconTint="@color/erroricon"
+            app:errorTextColor="@color/primarydark"
+            app:hintEnabled="false"
+            app:layout_cardRadius="70"
+            app:layout_constraintBottom_toBottomOf="@+id/hguide_s_3"
+            app:layout_constraintEnd_toEndOf="@+id/vguide_s_4"
+            app:layout_constraintStart_toStartOf="@+id/vguide_s_1"
+            app:layout_constraintTop_toTopOf="@+id/hguide_s_2"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#FFFFFF"
+            app:layout_highlightDx="-2dp"
+            app:layout_highlightDy="-2dp"
+            app:layout_highlightRadius="3dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#80000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="3dp"
+            app:startIconDrawable="@drawable/ic_baseline_search_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/transparent"
+                android:hint="Search"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/text"
+                android:paddingRight="@dimen/text"
+                android:textColor="#303030"
+                android:textColorHint="#50303030"
+                android:textSize="@dimen/text" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/search_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/fab_search"
+        app:layout_constraintTop_toBottomOf="@id/neumorphicConstraintLayout3"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/ic_baseline_close_24"
+        app:fabCustomSize="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/text"
+        app:maxImageSize="35dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

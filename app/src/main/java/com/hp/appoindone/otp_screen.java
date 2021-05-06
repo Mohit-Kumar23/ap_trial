@@ -29,7 +29,7 @@ public class otp_screen extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     EditText editText1,editText2,editText3,editText4,editText5,editText6;
-    String phone_no,email,pwd,first_name,last_name,systemcode,txt;
+    String phone_no,email,first_name,last_name,add,alcohol,alcoholperiod,alergic,alergicdetails,area,bg,city,dob,gender,height,postsurgery,smoking,smokingperiod,specs,weight,pwd,systemcode,txt,purl,surgerydetails,pincode;
     TextView textview,resend;
     Button button;
     Timer time;
@@ -43,6 +43,23 @@ public class otp_screen extends AppCompatActivity {
         pwd = getIntent().getStringExtra("pwd");
         first_name = getIntent().getStringExtra("first_name");
         last_name = getIntent().getStringExtra("last_name");
+        add="null";
+        alcohol="null";
+        alcoholperiod="null";
+        alergic="null";
+        alergicdetails="null";
+        area="null";
+        bg="null";
+        city="null";
+        dob="null";
+        gender="null";
+        height="null";
+        postsurgery="null";
+        smoking="null";
+        smokingperiod="null";
+        specs="null";
+        weight="null";
+        purl="null";
         initviews();
         otpview();
         txt="Enter OTP code sent to your number \n"+ phone_no;
@@ -143,10 +160,11 @@ public class otp_screen extends AppCompatActivity {
     }
 
     public void store_data(){
+        String emailName = email.substring(0,email.indexOf('@'));
         FirebaseDatabase rootnode = FirebaseDatabase.getInstance();
         DatabaseReference reference = rootnode.getReference("user");
-        userclass adduser = new userclass(phone_no,email,first_name,last_name);
-        reference.child(email).setValue(adduser);
+        userclass adduser = new userclass(phone_no,email,first_name,last_name,add,alcohol,alcoholperiod,alergic,alergicdetails,area,bg,city,dob,gender,height,postsurgery,smoking,smokingperiod,specs,weight,purl,surgerydetails,pincode);
+        reference.child(emailName).setValue(adduser);
     }
 
     public void otpview(){
