@@ -2,58 +2,84 @@ package com.hp.appoindone;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 public class personal_details_fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    String email,emailName,first_name,last_name,add,area,city,phone_no,dob,pincode,gender;
+    MaterialTextView efirst_name, elast_name, eemail, ephone_no, edob, egender, eadd, earea, ecity, epincode;
     public personal_details_fragment() {
-        // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment personal_details_fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static personal_details_fragment newInstance(String param1, String param2) {
-        personal_details_fragment fragment = new personal_details_fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_details_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_personal_details_fragment, container, false);
+        efirst_name = view.findViewById(R.id.tiet_pdf_first_name);
+        elast_name = view.findViewById(R.id.tiet_pdf_last_name);
+        eemail = view.findViewById(R.id.tiet_pdf_email);
+        ephone_no = view.findViewById(R.id.tiet_pdf_phoneno);
+        edob = view.findViewById(R.id.tiet_pdf_dob);
+        egender = view.findViewById(R.id.tiet_pdf_gender);
+        eadd = view.findViewById(R.id.tiet_pdf_add);
+        earea = view.findViewById(R.id.tiet_pdf_area);
+        ecity = view.findViewById(R.id.tiet_pdf_city);
+        epincode = view.findViewById(R.id.tiet_pdf_pincode);
+        email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        emailName = email.substring(0,email.indexOf('@'));
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user").child(emailName);
+        Log.i("heetdr",String.valueOf(databaseReference));
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    first_name = String.valueOf(snapshot.child("first_name").getValue());
+                    last_name = String.valueOf(snapshot.child("last_name").getValue());
+                    dob = String.valueOf(snapshot.child("dob").getValue());
+                    add = String.valueOf(snapshot.child("add").getValue());
+                    area = String.valueOf(snapshot.child("area").getValue());
+                    city = String.valueOf(snapshot.child("city").getValue());
+                    pincode = String.valueOf(snapshot.child("pincode").getValue());
+                    gender = String.valueOf(snapshot.child("gender").getValue());
+                    phone_no = String.valueOf(snapshot.child("phone_no").getValue());
+                    email = String.valueOf(snapshot.child("email").getValue());
+                    efirst_name.setText(first_name);
+                    elast_name.setText(last_name);
+                    edob.setText(dob);
+                    eadd.setText(add);
+                    earea.setText(area);
+                    ecity.setText(city);
+                    epincode.setText(pincode);
+                    egender.setText(gender);
+                    ephone_no.setText(phone_no);
+                    eemail.setText(email);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        return view;
     }
 }
