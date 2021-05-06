@@ -51,7 +51,8 @@ public class mostrecent_adapter extends FirebaseRecyclerAdapter<doctorclass,most
             @Override
             public void onClick(View v) {
                 ((MainActivity) v.getContext()).onClickCalled(model.getAddress(),model.getContact_no(),model.getHname(),model.getMf(),
-                        model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun());
+                        model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun(),model.getMon_fri(),
+                        model.getSat_sun(),model.getFee());
             }
         });
     }

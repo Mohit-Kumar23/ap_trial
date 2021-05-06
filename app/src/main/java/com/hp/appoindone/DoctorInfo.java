@@ -24,7 +24,9 @@ import com.bumptech.glide.Glide;
 import com.marcinmoskala.arcseekbar.ArcSeekBar;
 import com.thelumiereguy.neumorphicview.views.NeumorphicCardView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class DoctorInfo extends AppCompatActivity {
 
@@ -32,20 +34,25 @@ public class DoctorInfo extends AppCompatActivity {
     public TextView tv_date,tv_time;
     private int mYear,mMonth,mDay,mHour,mMinutes;
     RatingBar ratingBar;
-    TextView vaddress, vcontact_no, vhname, vmf, vname, vsat, vspecialist, vsun;
+    TextView vaddress, vcontact_no, vhname, vmf, vname, vsat, vspecialist, vsun,vcrowd_level;
     ImageView user_photo;
-    String address,contact_no,hname,mf,name,purl,rating,sat,specialist,sun;
+    String address,contact_no,hname,mf,name,purl,rating,sat,specialist,sun,mon_fri,sat_sun,fee;
     ImageView backBtn;
     NeumorphicCardView cardView;
     CardView cardView2;
-
+    doctorclass doctorObj;
     ArcSeekBar seekBar;
+    String daySelect;
+    boolean proceedBoolean=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_info);
         initViews();
-        address = getIntent().getExtras().getString("address");
+        doctorObj = new doctorclass();
+
+/*        address = getIntent().getExtras().getString("address");
         contact_no = getIntent().getExtras().getString("contact_no");
         hname = getIntent().getExtras().getString("hname");
         mf = getIntent().getExtras().getString("mf");
@@ -55,19 +62,26 @@ public class DoctorInfo extends AppCompatActivity {
         sat = getIntent().getExtras().getString("sat");
         specialist = getIntent().getExtras().getString("specialist");
         sun = getIntent().getExtras().getString("sun");
+        mon_fri = getIntent().getExtras().getString("mon_fri");
+        sat_sun = getIntent().getExtras().getString("sat_sun");
+        fee = getIntent().getExtras().getString("fee");
+
         Glide.with(user_photo.getContext()).load(purl).into(user_photo);
         vaddress.setText(address);
         vcontact_no.setText(contact_no);
         vhname.setText(hname);
         vmf.setText(mf);
-        vname.setText("Name : "+name);
+        //vname.setText("Name : "+name);
         ratingBar.setRating(Float.parseFloat(rating));
         vsat.setText(sat);
         vspecialist.setText(specialist);
-        vsun.setText(sun);
+        vsun.setText(sun);*/
+
         seekBar.setEnabled(false);
-        seekBar.setProgress(80);
-        seekBar.setProgressColor(getResources().getColor(R.color.green,getTheme()));
+       /* seekBar.setProgress(80);
+        seekBar.setProgressColor(getResources().getColor(R.color.green,getTheme()));*/
+        mon_fri="100";
+        sat_sun="23";
 
         btn_sel_time.setOnClickListener(this::onClick);
         btn_sel_date.setOnClickListener(this::onClick);
@@ -75,15 +89,19 @@ public class DoctorInfo extends AppCompatActivity {
         backBtn.setOnClickListener(view -> {
             startActivity(new Intent(DoctorInfo.this,MainActivity.class));
             finish();});
-        proceed.setOnClickListener(view -> {
-            if((tv_date.getText()!="Appointment Date : ") && (tv_time.getText()!="Appointment Time : ")){
-                Log.i("heet",String.valueOf(tv_date.getText()));
-                Log.i("heet",String.valueOf(name));
-                startActivity(new Intent(DoctorInfo.this,userinfo.class));
-                finish();
 
-            }else{
-                Toast.makeText(this,"Please select Data and Time",Toast.LENGTH_LONG).show();
+        proceed.setOnClickListener(view -> {
+            if ((tv_date.getText().toString().equals("Appointment Date : ")) || (tv_time.getText().toString().equals("Appointment Time : ")))
+            {
+                Toast.makeText(this, "Please select Data and Time", Toast.LENGTH_LONG).show();
+            }
+            else{
+                if(proceedBoolean){
+                    startActivity(new Intent(DoctorInfo.this,confirmAppoint.class));
+                }
+                else {
+                        Toast.makeText(this,"Appointment Not Available at Selected Slot",Toast.LENGTH_LONG).show();
+                    }
             }
         });
     }
@@ -105,11 +123,12 @@ public class DoctorInfo extends AppCompatActivity {
         vcontact_no=(TextView)findViewById(R.id.tv_di_contactTxt);
         vhname=(TextView)findViewById(R.id.tv_di_hospitalTxt);
         vmf=(TextView)findViewById(R.id.tv_mon_fri_time);
-        vname=(TextView)findViewById(R.id.tv_di_nameTxt);
+        //vname=(TextView)findViewById(R.id.tv_di_nameTxt);
         vsat=(TextView)findViewById(R.id.textView9);
         vspecialist=(TextView)findViewById(R.id.tv_di_specialistTxt);
         vsun=(TextView)findViewById(R.id.tv_sun_time);
         proceed=(Button)findViewById(R.id.proceed);
+        vcrowd_level=(TextView)findViewById(R.id.crowdLevel);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -126,10 +145,16 @@ public class DoctorInfo extends AppCompatActivity {
                 @Override
                 public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                     tv_date.setText("Appointment Date : "+i2+"/"+(i1+1)+"/"+i);
+                    SimpleDateFormat sdf = new SimpleDateFormat("EE");
+                    Date date = new Date(i,i1,i2-1);
+                    daySelect = sdf.format(date);
+                    Log.i("day",daySelect);
+                    computingProgress();
                 }
             },mYear,mMonth,mDay);
 
             datePickerDialog.show();
+
 
         }
 
@@ -149,5 +174,68 @@ public class DoctorInfo extends AppCompatActivity {
             timePickerDialog.show();
         }
 
+
+    }
+
+    public void computingProgress()
+    {
+        if(daySelect.toLowerCase().equals("sat") || daySelect.toLowerCase().equals("sun"))
+        {
+            seekBar.setProgress(Integer.parseInt(sat_sun));
+            proceedBoolean = settingSeekBar();
+        }
+        else
+        {
+            seekBar.setProgress(Integer.parseInt(mon_fri));
+            proceedBoolean = settingSeekBar();
+        }
+
+    }
+
+    public boolean settingSeekBar()
+    {
+        int seekBarValue = seekBar.getProgress();
+        if(seekBarValue>=0 && seekBarValue<=20)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.green,getTheme()));
+            vcrowd_level.setText("VERY LOW");
+            return true;
+        }
+
+        else if(seekBarValue>20 && seekBarValue<=40)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.alarmingGreen,getTheme()));
+            vcrowd_level.setText("LOW");
+            return true;
+        }
+
+        else if(seekBarValue>40 && seekBarValue<=60)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.yellow,getTheme()));
+            vcrowd_level.setText("MEDIUM");
+            return true;
+        }
+
+        else if(seekBarValue>60 && seekBarValue<=80)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.orange,getTheme()));
+            vcrowd_level.setText("HIGH");
+            return true;
+        }
+
+        else if(seekBarValue>80 && seekBarValue<100)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.red,getTheme()));
+            vcrowd_level.setText("VERY HIGH");
+            return true;
+        }
+
+        else if(seekBarValue==100)
+        {
+            seekBar.setProgressColor(getResources().getColor(R.color.red,getTheme()));
+            vcrowd_level.setText("NOT AVAILABLE AT ALL");
+            return false;
+        }
+        return false;
     }
 }

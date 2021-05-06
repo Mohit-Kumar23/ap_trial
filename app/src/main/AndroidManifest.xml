@@ -20,7 +20,14 @@
 
         <activity android:name=".confirmAppoint"/>
 
-        <activity android:name=".DoctorInfo" />
+        <activity android:name=".DoctorInfo" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".Search"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Transparent" />
@@ -33,13 +40,7 @@
         <activity android:name=".userinfo" />
         <activity android:name=".MainActivity"/>
 
-        <activity android:name=".splash_screen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".splash_screen" />
 
 
         <meta-data

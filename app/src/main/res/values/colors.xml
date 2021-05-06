@@ -8,5 +8,8 @@
     <color name="erroricon">#FF0000</color>
     <color name="green">#00FF00</color>
     <color name="transparent">#00000000</color>
-
+    <color name="red">#FF0000</color>
+    <color name="orange">#f98e0e</color>
+    <color name="alarmingGreen">#bef90e</color>
+    <color name="yellow">#f9f20e</color>
 </resources>
