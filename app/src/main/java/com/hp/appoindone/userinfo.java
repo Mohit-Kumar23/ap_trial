@@ -212,12 +212,20 @@ public class userinfo extends AppCompatActivity implements PaymentResultListener
         Intent intent = new Intent(this, confirmAppoint.class);
         b.putString("paymentId",s);
         b.putString("desc",descl.getText().toString());
+        intent.putExtras(b);
         startActivity(intent);
+        finish();
     }
 
     @Override
     public void onPaymentError(int i, String s) {
         //Display Toast
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,DoctorInfo.class));
     }
 }

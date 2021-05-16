@@ -209,6 +209,10 @@ public class editFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     phone_no[0] = String.valueOf(snapshot.child(emailName).child("phone_no").getValue(String.class));
+                    FirebaseDatabase rootnode = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = rootnode.getReference("user");
+                    userclass adduser = new userclass(phone_no[0],email,first_names,last_names,adds,alcohols,alcoholperiods,allergys,allergydiscriptions,areas,bgs,citys,dobs,genders,heights,surgerys,smokings,smokingperiods,specss,weights,purl,surgerydiscriptions,pincodes);
+                    reference.child(emailName).setValue(adduser);
                 }
             }
             @Override
@@ -238,10 +242,7 @@ public class editFragment extends Fragment {
         Log.i("heetf",String.valueOf(purl));
         Log.i("heetf",String.valueOf(surgerydiscriptions));
         Log.i("heetf",String.valueOf(pincodes));
-        FirebaseDatabase rootnode = FirebaseDatabase.getInstance();
-        DatabaseReference reference = rootnode.getReference("user");
-        userclass adduser = new userclass(phone_no[0],email,first_names,last_names,adds,alcohols,alcoholperiods,allergys,allergydiscriptions,areas,bgs,citys,dobs,genders,heights,surgerys,smokings,smokingperiods,specss,weights,purl,surgerydiscriptions,pincodes);
-        reference.child(emailName).setValue(adduser);
+
 
     }
 }

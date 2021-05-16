@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView patient_photo;
     TextView textView;
     CoordinatorLayout coordinatorLayout;
-    String pincode;
+    String pincode ;
     log_in lg_obj;
     splash_screen spls_obj;
     String emailName,email,purl,first_name,last_name;
@@ -95,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
                     purl = snapshot.child(emailName).child("purl").getValue(String.class);
                     first_name = snapshot.child(emailName).child("first_name").getValue(String.class);
                     last_name = snapshot.child(emailName).child("last_name").getValue(String.class);
+                    //textView.setText(first_name+" "+last_name);
+                    /*if(purl==null){
+                        patient_photo.setImageResource(R.drawable.profile_icon);
+                      }
+                    else{
+                        Glide.with(this).load(purl).into(patient_photo);
+                    }*/
                 }
             }
             @Override
@@ -102,19 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        /*if(purl==null){
-            patient_photo.setImageResource(R.drawable.profile_icon);
-        }
-        else{
-            Glide.with(this).load(purl).into(patient_photo);
-        }*/
-//        textView.setText(first_name+" "+last_name);
         lg_obj = new log_in();
-        spls_obj = new splash_screen();
-        Toast.makeText(this,FirebaseAuth.getInstance().getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
-        pincode = spls_obj.pincode;
-        Log.i("pincode_mainactivity",String.valueOf(pincode));
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 //        patient_photo.setOnClickListener(v -> getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new profileFragment()).commit());
@@ -238,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
         coordinatorLayout = findViewById(R.id.bn_am_cl);
         navigationView = findViewById(R.id.navigation_view);
         fab = findViewById(R.id.fab);
-        //textView = findViewById(R.id.user_name);
+
         //patient_photo = findViewById(R.id.patient_photo);
     }
 
@@ -259,17 +254,20 @@ public class MainActivity extends AppCompatActivity {
         b.putString("sat_sun",sat_sun);
         b.putString("fee",fee);
         intent.putExtras(b);
-        this.startActivity(intent);
+        startActivity(intent);
+        finish();
     }
 
     public void onDialogClick() {
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new profileFragment("open")).commit();
+        bottomNavigationView.setSelectedItemId(R.id.profile);
     }
 
     public void onCategoryClicked(String name) {
         Intent intent = new Intent(this,category.class);
         intent.putExtra("category",name);
         startActivity(intent);
+        finish();
     }
 
     public void onClickSave() {

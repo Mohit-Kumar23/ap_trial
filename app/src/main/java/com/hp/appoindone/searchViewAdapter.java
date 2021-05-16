@@ -1,8 +1,6 @@
 package com.hp.appoindone;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +19,11 @@ import com.thelumiereguy.neumorphicview.views.NeumorphicCardView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
-public class categoryViewAdapter extends FirebaseRecyclerAdapter<doctorclass,categoryViewAdapter.myviewHolder> {
+public class searchViewAdapter extends FirebaseRecyclerAdapter<doctorclass,searchViewAdapter.myviewHolder> {
+
     private Context context;
-    public categoryViewAdapter(@NonNull FirebaseRecyclerOptions<doctorclass> options,Context context) {
+    public searchViewAdapter(@NonNull FirebaseRecyclerOptions<doctorclass> options,Context context) {
         super(options);
         this.context = context;
     }
@@ -46,9 +44,9 @@ public class categoryViewAdapter extends FirebaseRecyclerAdapter<doctorclass,cat
         holder.ncvmain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((category)context).onClickCalled(model.getAddress(),model.getContact_no(),model.getHname(),model.getMf(),
-                      model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun(),model.getMon_fri(),
-                      model.getSat_sun(),model.getFee());
+                ((Search)context).onClickCalled(model.getAddress(),model.getContact_no(),model.getHname(),model.getMf(),
+                        model.getName(),model.getPurl(),model.getRating(),model.getSat(),model.getSpecialist(),model.getSun(),model.getMon_fri(),
+                        model.getSat_sun(),model.getFee());
             }
         });
     }
@@ -57,8 +55,9 @@ public class categoryViewAdapter extends FirebaseRecyclerAdapter<doctorclass,cat
     @Override
     public myviewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horizontal_view,parent,false);
-        return new myviewHolder(view);
+        return new searchViewAdapter.myviewHolder(view);
     }
+
 
     class myviewHolder extends RecyclerView.ViewHolder{
 

@@ -56,7 +56,7 @@
                 app:cardCornerRadius="1000dp">
 
                 <ImageView
-                    android:id="@+id/patient_photo"
+                    android:id="@+id/nh_patient_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -66,7 +66,7 @@
     </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/nh_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
