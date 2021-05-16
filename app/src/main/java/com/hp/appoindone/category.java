@@ -33,7 +33,7 @@ public class category extends AppCompatActivity {
                 new FirebaseRecyclerOptions.Builder<doctorclass>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("doctor").orderByChild("specialist").equalTo(category), doctorclass.class)
                         .build();
-        categoryviewAdapter = new categoryViewAdapter(options1);
+        categoryviewAdapter = new categoryViewAdapter(options1,this);
         recyclerView.setAdapter(categoryviewAdapter);
     }
 
@@ -48,4 +48,32 @@ public class category extends AppCompatActivity {
         super.onStop();
         categoryviewAdapter.stopListening();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MainActivity.class));
+    }
+
+    public void onClickCalled(String address, String contact_no, String hname, String mf, String name, String purl, String rating, String sat, String specialist, String sun, String mon_fri, String sat_sun, String fee) {
+        Intent intent = new Intent(this, DoctorInfo.class);
+        Bundle b = new Bundle();
+        b.putString("address",address);
+        b.putString("contact_no",contact_no);
+        b.putString("hname",hname);
+        b.putString("mf",mf);
+        b.putString("name",name);
+        b.putString("purl",purl);
+        b.putString("rating",rating);
+        b.putString("sat",sat);
+        b.putString("specialist",specialist);
+        b.putString("sun",sun);
+        b.putString("mon_fri",mon_fri);
+        b.putString("sat_sun",sat_sun);
+        b.putString("fee",fee);
+        intent.putExtras(b);
+        startActivity(intent);
+        finish();
+    }
+
 }

@@ -425,7 +425,7 @@
                     android:layout_marginLeft="@dimen/extra"
                     android:layout_marginTop="@dimen/extra"
                     android:layout_marginRight="@dimen/extra"
-                    android:text="Crowdedness Level : "
+                    android:text="Crowdness Level : "
                     android:textColor="@color/black"
                     android:textSize="@dimen/text"
                     android:textStyle="bold" />
@@ -449,7 +449,7 @@
                         app:progressBackgroundColor="#303030"
                         app:progressBackgroundWidth="10dp"
                         app:progressWidth="20dp"
-                        app:progress="40"
+                        app:progress="0"
                         app:roundEdges="true"
                         app:thumb="@drawable/thumb" />
 

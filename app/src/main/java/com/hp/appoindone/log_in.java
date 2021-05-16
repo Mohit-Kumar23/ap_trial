@@ -217,6 +217,7 @@ public class log_in extends AppCompatActivity {
 
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent,RC_SIGN_IN);
+        finish();
         Log.i("gsi","after intent");
     }
 

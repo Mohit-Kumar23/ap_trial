@@ -88,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/text"
-                            android:layout_marginTop="35dp"
+                            android:layout_marginTop="@dimen/extra"
                             android:text="Patient Name : Mr. Mohit Kumar"
                             android:textSize="@dimen/text" />
 
@@ -133,15 +133,15 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical">
 
                         <com.thelumiereguy.neumorphicview.views.NeumorphicCardView
                             android:id="@+id/neuCV"
                             android:layout_width="150dp"
-                            android:layout_height="150dp"
+                            android:layout_height="match_parent"
                             android:layout_gravity="right"
-                            android:layout_marginTop="16dp"
                             android:layout_marginEnd="2dp"
                             app:enable_preview="true">
 
@@ -321,7 +321,7 @@
             app:borderWidth="5dp"
             app:layout_constraintBottom_toTopOf="@+id/hguideInside_ca_1"
             app:layout_constraintEnd_toStartOf="@+id/vguideInside_ca_1"
-            app:maxImageSize="30dp" />
+            app:maxImageSize="30dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

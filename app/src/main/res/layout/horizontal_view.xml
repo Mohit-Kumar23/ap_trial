@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#EEEEEE">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dv"
@@ -13,7 +14,7 @@
         tools:ignore="MissingConstraints">
         <com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="200dp"
             app:enable_preview="true"
             android:background="#EEEEEE">
 
@@ -119,9 +120,10 @@
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 android:stepSize="0.5"
-                app:layout_constraintStart_toEndOf="@id/neumorphicCardView"
+                app:layout_constraintBottom_toBottomOf="@+id/ncvmain"
                 app:layout_constraintEnd_toEndOf="@id/ncvmain"
-                app:layout_constraintTop_toBottomOf="@id/tv_dv_area"/>
+                app:layout_constraintStart_toEndOf="@id/neumorphicCardView"
+                app:layout_constraintTop_toBottomOf="@id/tv_dv_area" />
 
             <TextView
                 android:id="@+id/tv_dv_name"

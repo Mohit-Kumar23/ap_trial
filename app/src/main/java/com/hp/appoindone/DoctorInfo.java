@@ -66,16 +66,16 @@ public class DoctorInfo extends AppCompatActivity {
         mon_fri = getIntent().getExtras().getString("mon_fri");
         sat_sun = getIntent().getExtras().getString("sat_sun");
         fee = getIntent().getExtras().getString("fee");
-
+        vcrowd_level.setText("VERY LOW");
         Glide.with(user_photo.getContext()).load(purl).into(user_photo);
-        vaddress.setText(address);
-        vcontact_no.setText(contact_no);
-        vhname.setText(hname);
+        vaddress.setText("Address : "+address);
+        vcontact_no.setText("Phone No. : "+contact_no);
+        vhname.setText("Hospital : "+hname);
         vmf.setText(mf);
         vname.setText("Name : "+name);
         ratingBar.setRating(Float.parseFloat(rating));
         vsat.setText(sat);
-        vspecialist.setText(specialist);
+        vspecialist.setText("Specialist : "+specialist);
         vsun.setText(sun);
 
         seekBar.setEnabled(false);
@@ -101,6 +101,7 @@ public class DoctorInfo extends AppCompatActivity {
                     b.putString("appointT",tv_time.getText().toString().substring(tv_time.getText().toString().indexOf(":")+2));
                     intent.putExtras(b);
                     startActivity(intent);
+                    finish();
                 }
                 else {
                         Toast.makeText(this,"Appointment Not Available at Selected Slot",Toast.LENGTH_LONG).show();
@@ -240,5 +241,12 @@ public class DoctorInfo extends AppCompatActivity {
             return false;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 }

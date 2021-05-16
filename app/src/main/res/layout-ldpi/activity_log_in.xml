@@ -14,7 +14,7 @@
     app:layout_highlightDy="-3dp"
     app:layout_highlightRadius="3dp"
     app:layout_neu_backgroundColor="#EEEEEE"
-    app:layout_shadowColor="#000000"
+    app:layout_shadowColor="#00000000"
     app:layout_shadowDx="3dp"
     app:layout_shadowDy="3dp"
     app:layout_shadowRadius="3dp"
@@ -25,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.3"
-        android:src="@color/white"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        android:src="@color/white" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vguide_l_1"
@@ -240,21 +240,21 @@
         app:errorTextColor="@color/primarydark"
         app:hintEnabled="false"
         app:layout_cardRadius="100"
-        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_l_3"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_l_10"
+        app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_2"
         app:layout_enableHighlight="true"
         app:layout_enableShadow="true"
         app:layout_highlightColor="#80FFFFFF"
         app:layout_highlightDx="-1dp"
         app:layout_highlightDy="-1dp"
         app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
         app:layout_shadowColor="#000000"
         app:layout_shadowDx="2dp"
         app:layout_shadowDy="2dp"
-        app:layout_shadowRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="@+id/hguide_l_3"
-        app:layout_constraintEnd_toEndOf="@+id/vguide_l_10"
-        app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
-        app:layout_constraintTop_toTopOf="@+id/hguide_l_2">
+        app:layout_shadowRadius="3dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_l_email"
@@ -267,7 +267,18 @@
             android:paddingRight="@dimen/text"
             android:textColor="#303030"
             android:textColorHint="#50303030"
-            android:textSize="@dimen/text" />
+            android:textSize="@dimen/text"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#80FFFFFF"
+            app:layout_highlightDx="-1dp"
+            app:layout_highlightDy="-1dp"
+            app:layout_highlightRadius="3dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="3dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -283,21 +294,21 @@
         app:errorTextColor="@color/primarydark"
         app:hintEnabled="false"
         app:layout_cardRadius="100"
-        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_l_5"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_l_10"
+        app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_4"
         app:layout_enableHighlight="true"
         app:layout_enableShadow="true"
         app:layout_highlightColor="#80FFFFFF"
         app:layout_highlightDx="-1dp"
         app:layout_highlightDy="-1dp"
         app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
         app:layout_shadowColor="#000000"
         app:layout_shadowDx="2dp"
         app:layout_shadowDy="2dp"
         app:layout_shadowRadius="3dp"
-        app:layout_constraintBottom_toBottomOf="@+id/hguide_l_5"
-        app:layout_constraintEnd_toEndOf="@+id/vguide_l_10"
-        app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
-        app:layout_constraintTop_toTopOf="@+id/hguide_l_4"
         app:passwordToggleEnabled="false"
         app:passwordToggleTint="#FFFFFF">
 
@@ -312,7 +323,18 @@
             android:paddingRight="@dimen/text"
             android:textColor="#303030"
             android:textColorHint="#50303030"
-            android:textSize="@dimen/text" />
+            android:textSize="@dimen/text"
+            app:layout_enableHighlight="true"
+            app:layout_enableShadow="true"
+            app:layout_highlightColor="#80FFFFFF"
+            app:layout_highlightDx="-1dp"
+            app:layout_highlightDy="-1dp"
+            app:layout_highlightRadius="3dp"
+            app:layout_neu_backgroundColor="#EEEEEE"
+            app:layout_shadowColor="#000000"
+            app:layout_shadowDx="2dp"
+            app:layout_shadowDy="2dp"
+            app:layout_shadowRadius="3dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -326,8 +348,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/hguide_l_8"
         app:layout_constraintEnd_toEndOf="@+id/vguide_l_7"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_4"
-        app:layout_constraintTop_toTopOf="@+id/hguide_l_7"
-        />
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_7" />
 
     <TextView
         android:id="@+id/tv_l_fpwd"
@@ -336,10 +357,10 @@
         android:fontFamily="sans-serif"
         android:linksClickable="true"
         android:paddingStart="@dimen/text"
+        android:paddingTop="5dp"
         android:text="Forgot Your Password"
         android:textColor="#303030"
         android:textSize="@dimen/extra"
-        android:paddingTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_1"
         app:layout_constraintTop_toTopOf="@+id/hguide_l_5" />
 
@@ -385,6 +406,18 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#BB303030"
         android:textSize="@dimen/text"
+        app:layout_enableHighlight="true"
+        app:layout_cardRadius="70"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"
         app:layout_constraintBottom_toTopOf="@+id/hguide_l_11"
         app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
@@ -414,17 +447,68 @@
         app:layout_constraintStart_toStartOf="@+id/vguide_l_4"
         app:layout_constraintTop_toBottomOf="@+id/tv_l_tc" />
 
+    <TextView
+        android:id="@+id/tv_l_softui1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_cardRadius="100"
+        app:layout_constraintBottom_toBottomOf="@+id/hguide_l_8"
+        app:layout_constraintEnd_toEndOf="@id/vguide_l_7"
+        app:layout_constraintStart_toStartOf="@id/vguide_l_4"
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_7"
+        app:layout_enableHighlight="true"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#40FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="@color/white"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/text"
+        android:layout_gravity="center"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:outlineProvider="none"
         android:text="Continue with Facebook"
+        android:textFontWeight="1"
+        android:textSize="@dimen/text"
+        android:translationZ="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_li_fb"
+        app:layout_constraintEnd_toEndOf="@+id/vguide_l_8"
+        app:layout_constraintStart_toStartOf="@+id/vguide_l_3"
+        app:layout_constraintTop_toTopOf="@+id/btn_li_fb"
+        app:layout_shadowColor="#00FFFFFF" />
+
+    <Button
+        android:id="@+id/btn_li_fb"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/fb_button"
+        android:paddingLeft="20dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toTopOf="@+id/hguide_l_13"
         app:layout_constraintEnd_toStartOf="@+id/vguide_l_9"
         app:layout_constraintStart_toStartOf="@+id/vguide_l_2"
-        app:layout_constraintTop_toTopOf="@+id/hguide_l_12" />
+        app:layout_constraintTop_toTopOf="@+id/hguide_l_12"
+        app:layout_enableHighlight="true"
+        app:layout_cardRadius="70"
+        app:layout_enableShadow="true"
+        app:layout_highlightColor="#80FFFFFF"
+        app:layout_highlightDx="-1dp"
+        app:layout_highlightDy="-1dp"
+        app:layout_highlightRadius="3dp"
+        app:layout_neu_backgroundColor="#EEEEEE"
+        app:layout_shadowColor="#000000"
+        app:layout_shadowDx="2dp"
+        app:layout_shadowDy="2dp"
+        app:layout_shadowRadius="3dp"/>
+
 
 </com.thelumiereguy.neumorphicview.views.NeumorphicConstraintLayout>
