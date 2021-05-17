@@ -75,6 +75,7 @@ public class sign_up extends AppCompatActivity {
             intent.putExtra("first_name",first_name);
             intent.putExtra("last_name",last_name);
             startActivity(intent);
+            finish();
         }
     }
 

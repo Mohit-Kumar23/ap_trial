@@ -52,7 +52,7 @@ public class otp_screen extends AppCompatActivity {
         bg="null";
         city="null";
         dob="null";
-        gender="null";
+        gender="Gender";
         height="null";
         postsurgery="null";
         smoking="null";

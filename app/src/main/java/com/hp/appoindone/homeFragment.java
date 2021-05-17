@@ -29,6 +29,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -91,16 +92,17 @@ public class homeFragment extends Fragment{
 
             }
         });
-        
+
         firebaseNearBy();
         categoryList();
+
     }
 
 
     private void firebaseNearBy() {
         FirebaseRecyclerOptions<doctorclass> options1 =
                 new FirebaseRecyclerOptions.Builder<doctorclass>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference("doctor").orderByChild("pincode").startAt(pincode).endAt(pincode+"uf8ff"), doctorclass.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference("doctor").orderByChild("pincode").startAt(pincode).endAt(pincode+"\uf8ff"), doctorclass.class)
                         .build();
         nbAdapter = new nearby_adapter(options1);
     }
@@ -134,9 +136,17 @@ public class homeFragment extends Fragment{
     @Override
     public void onStart() {
         super.onStart();
-        mrAdapter.startListening();
-        nbAdapter.startListening();
-        catAdapter.startListening();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Required Details");
+        builder.setMessage("Please fill the required Details");
+        builder.setIcon(R.mipmap.appoindone_logo);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ((MainActivity)getContext()).onDialogClick();
+            }
+        });
+        builder.setCancelable(false);
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("user");
         Query user = databaseReference.orderByChild("email").equalTo(email);
         user.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -144,17 +154,8 @@ public class homeFragment extends Fragment{
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     gender = snapshot.child(emailName).child("gender").getValue(String.class);
-                    if(gender==null){
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                        builder.setTitle("Required Details");
-                        builder.setMessage("Please fill the required Details");
-                        builder.setIcon(R.mipmap.appoindone_logo);
-                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                ((MainActivity)getContext()).onDialogClick();
-                            }
-                        });
+                    Log.i("gender",String.valueOf(gender));
+                    if(gender.equals("Gender")){
                         builder.show();
                     }
                 }
@@ -165,7 +166,9 @@ public class homeFragment extends Fragment{
 
             }
         });
-
+        mrAdapter.startListening();
+        nbAdapter.startListening();
+        catAdapter.startListening();
     }
 
     @Override

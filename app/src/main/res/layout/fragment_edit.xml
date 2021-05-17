@@ -719,7 +719,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/transparent"
-                        android:hint="Weight(mm)"
+                        android:hint="Weight(kg)"
                         android:inputType="textPersonName"
                         android:paddingLeft="@dimen/text"
                         android:paddingRight="@dimen/text"

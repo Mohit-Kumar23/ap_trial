@@ -80,14 +80,15 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:elevation="12dp"
-            android:scaleX="2.5"
-            android:scaleY="2.5"
             app:layout_constraintBottom_toTopOf="@+id/guideline37"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="false"
-            app:lottie_rawRes="@raw/hamburger" />
+            app:lottie_rawRes="@raw/hamburger"
+            android:scaleType="centerInside"
+            android:scaleY="0.7"
+            android:scaleX="0.7"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

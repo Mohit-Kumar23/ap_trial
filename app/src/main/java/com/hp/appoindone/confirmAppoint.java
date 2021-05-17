@@ -1,6 +1,9 @@
 package com.hp.appoindone;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -35,8 +38,11 @@ import java.util.Random;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class confirmAppoint extends AppCompatActivity {
 
@@ -64,14 +70,34 @@ public class confirmAppoint extends AppCompatActivity {
         tokenNo = random.nextInt(200);
         tokenTxt.setText("Token No. : "+String.valueOf(tokenNo));
 
-        Toast.makeText(this,nameTxt.getText().toString(),Toast.LENGTH_LONG).show();
-
         fab = (FloatingActionButton)findViewById(R.id.fab_ca_pdf);
         fab.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
-                Toast.makeText(confirmAppoint.this,"Hello Toast",Toast.LENGTH_LONG).show();
+                if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(confirmAppoint.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},10);
+                }else{
+                    try {
+                        createPdf();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (DocumentException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode==10){
+            if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 try {
                     createPdf();
                 } catch (FileNotFoundException e) {
@@ -82,8 +108,10 @@ public class confirmAppoint extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
-
+            else{
+                ActivityCompat.requestPermissions(confirmAppoint.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},10);
+            }
+        }
     }
 
     private void initView() {
@@ -132,22 +160,25 @@ public class confirmAppoint extends AppCompatActivity {
     public void createPdf() throws IOException, DocumentException
     {
         String currentDateTime = DateFormat.getDateTimeInstance().format(new Date());
-
+        Log.i("heetpdf","heet");
         // Location of PDF
-        String pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).toString();
+        String pdfPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
         File folder = new File(pdfPath,"Appoindone");
         if(!folder.exists())
         {
             folder.mkdir();
-            Log.i("folder","Folder Created");
+            Log.i("heetfolder","Folder Created");
         }
-        File file = new File(folder+"/"+currentDateTime+".pdf");
+        Toast.makeText(this,"Check Your Digital Token in Internal_Storage/Downloads/Appoindone",Toast.LENGTH_SHORT).show();
+        Log.i("heetpath2",String.valueOf(pdfPath));
+        File file = new File(pdfPath+"/"+"Appoindone/"+currentDateTime+".pdf");
+        Log.i("heetpath22",String.valueOf(pdfPath));
         OutputStream outputStream = new FileOutputStream(file);
-
+        Log.i("heetpath1",String.valueOf(pdfPath));
         //Document Instance created
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document,outputStream);
-
+        Log.i("heetpath",String.valueOf(pdfPath));
         //Values for QR Code
         String patientNV = nameTxt.getText().toString().substring(nameTxt.getText().toString().indexOf(":")+2);
         String appointIDV = appointIdTxt.getText().toString().substring(appointIdTxt.getText().toString().indexOf(":")+2);
@@ -435,10 +466,14 @@ public class confirmAppoint extends AppCompatActivity {
         ct.addElement(contactMailId);
         ct.go();
 
-
-
         document.close();
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
+    }
 }
